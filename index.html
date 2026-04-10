@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,9 +9,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Playfair+Display:wght@400;600;700&display=swap');
-        
+
         html {
-        scroll-behavior: smooth;
+            scroll-behavior: smooth;
         }
 
         body {
@@ -18,15 +19,15 @@
             background-color: #F5F1E8;
             color: #2C2C2C;
         }
-        
+
         .hero-title {
             font-family: 'Playfair Display', serif;
         }
-        
+
         .nav-link {
             position: relative;
         }
-        
+
         .nav-link::after {
             content: '';
             position: absolute;
@@ -37,111 +38,112 @@
             background-color: #E67E50;
             transition: width 0.3s ease;
         }
-        
+
         .nav-link:hover::after {
             width: 100%;
         }
-        
+
         .active::after {
             width: 100%;
         }
-        
+
         .profile-img {
             transition: transform 0.3s ease;
         }
-        
+
         .profile-img:hover {
             transform: scale(1.02);
         }
-        
+
         .social-icon {
             transition: all 0.3s ease;
         }
-        
+
         .social-icon:hover {
             transform: translateY(-3px);
             color: #E67E50;
         }
-        
+
         .blog-card {
             transition: all 0.3s ease;
         }
-        
+
         .blog-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
         }
-        
+
         .hamburger {
             transition: all 0.3s ease;
         }
-        
+
         .hamburger.active .line:nth-child(1) {
             transform: translateY(8px) rotate(45deg);
         }
-        
+
         .hamburger.active .line:nth-child(2) {
             opacity: 0;
         }
-        
+
         .hamburger.active .line:nth-child(3) {
             transform: translateY(-8px) rotate(-45deg);
         }
+
         .competences {
-        font-size: 1rem;
-        color: #4B5563; /* gris doux */
-        line-height: 1.8;
-        margin-top: 1.5rem;
-        background: #fff;
-        padding: 1.5rem;
-        border-left: 4px solid #E67E50;
-        border-radius: 0.75rem;
-        box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            font-size: 1rem;
+            color: #4B5563;
+            /* gris doux */
+            line-height: 1.8;
+            margin-top: 1.5rem;
+            background: #fff;
+            padding: 1.5rem;
+            border-left: 4px solid #E67E50;
+            border-radius: 0.75rem;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
         }
 
-.competences .category {
-    display: inline-block;
-    font-weight: 600;
-    color: #E67E50;
-    margin-top: 0.5rem;
-}
-
+        .competences .category {
+            display: inline-block;
+            font-weight: 600;
+            color: #E67E50;
+            margin-top: 0.5rem;
+        }
     </style>
 </head>
 <script>
-document.addEventListener("DOMContentLoaded", () => {
-    const readMoreBtn = document.getElementById("readMoreBtn");
-    const moreText = document.getElementById("moreText");
-    const arrowIcon = readMoreBtn.querySelector("svg");
+    document.addEventListener("DOMContentLoaded", () => {
+        const readMoreBtn = document.getElementById("readMoreBtn");
+        const moreText = document.getElementById("moreText");
+        const arrowIcon = readMoreBtn.querySelector("svg");
 
-    readMoreBtn.addEventListener("click", () => {
-        const isHidden = moreText.classList.contains("hidden");
+        readMoreBtn.addEventListener("click", () => {
+            const isHidden = moreText.classList.contains("hidden");
 
-        if (isHidden) {
-            // Affiche avec effet fade + slide
-            moreText.classList.remove("hidden");
-            setTimeout(() => {
-                moreText.classList.remove("opacity-0", "translate-y-2");
-                moreText.classList.add("opacity-100", "translate-y-0");
-            }, 10);
+            if (isHidden) {
+                // Affiche avec effet fade + slide
+                moreText.classList.remove("hidden");
+                setTimeout(() => {
+                    moreText.classList.remove("opacity-0", "translate-y-2");
+                    moreText.classList.add("opacity-100", "translate-y-0");
+                }, 10);
 
-            // Change le texte et tourne l’icône
-            readMoreBtn.firstChild.textContent = "Lire moins ";
-            arrowIcon.classList.add("rotate-180");
-        } else {
-            // Cache avec effet inverse
-            moreText.classList.remove("opacity-100", "translate-y-0");
-            moreText.classList.add("opacity-0", "translate-y-2");
-            arrowIcon.classList.remove("rotate-180");
-            readMoreBtn.firstChild.textContent = "Lire la suite ";
+                // Change le texte et tourne l’icône
+                readMoreBtn.firstChild.textContent = "Lire moins ";
+                arrowIcon.classList.add("rotate-180");
+            } else {
+                // Cache avec effet inverse
+                moreText.classList.remove("opacity-100", "translate-y-0");
+                moreText.classList.add("opacity-0", "translate-y-2");
+                arrowIcon.classList.remove("rotate-180");
+                readMoreBtn.firstChild.textContent = "Lire la suite ";
 
-            setTimeout(() => {
-                moreText.classList.add("hidden");
-            }, 500);
-        }
+                setTimeout(() => {
+                    moreText.classList.add("hidden");
+                }, 500);
+            }
+        });
+
     });
-    
-});
 </script>
 
 
@@ -150,16 +152,17 @@ document.addEventListener("DOMContentLoaded", () => {
     <header class="fixed w-full bg-white bg-opacity-90 shadow-sm z-50">
         <div class="container mx-auto px-4 py-4 flex justify-between items-center">
             <a href="#" class="text-2xl font-bold text-[#E67E50]">Portfolio DAYAWA Germain Mike</a>
-            
+
             <!-- Desktop Navigation -->
             <nav class="hidden md:flex space-x-8">
-                <a href="#competences" class="nav-link active uppercase text-sm font-medium tracking-wider">Compétences</a>
+                <a href="#competences"
+                    class="nav-link active uppercase text-sm font-medium tracking-wider">Compétences</a>
                 <a href="#stage" class="nav-link uppercase text-sm font-medium tracking-wider">Stages</a>
                 <a href="#benevolat" class="nav-link uppercase text-sm font-medium tracking-wider">Bénévolat</a>
                 <a href="#cv" class="nav-link uppercase text-sm font-medium tracking-wider">Curriculum vitae</a>
                 <a href="#design4green" class="nav-link uppercase text-sm font-medium tracking-wider">Design4green</a>
             </nav>
-            
+
             <!-- Mobile Hamburger Menu -->
             <button id="menu-toggle" class="md:hidden focus:outline-none">
                 <div class="hamburger">
@@ -169,15 +172,17 @@ document.addEventListener("DOMContentLoaded", () => {
                 </div>
             </button>
         </div>
-        
+
         <!-- Mobile Menu -->
         <div id="mobile-menu" class="hidden md:hidden bg-white py-4 px-4 shadow-lg">
             <div class="flex flex-col space-y-4">
-                <a href="#competences" class="nav-link active uppercase text-sm font-medium tracking-wider py-2">Compétences</a>
+                <a href="#competences"
+                    class="nav-link active uppercase text-sm font-medium tracking-wider py-2">Compétences</a>
                 <a href="#stage" class="nav-link uppercase text-sm font-medium tracking-wider py-2">Stages</a>
                 <a href="#benevolat" class="nav-link uppercase text-sm font-medium tracking-wider py-2">Bénévolat</a>
                 <a href="#cv" class="nav-link uppercase text-sm font-medium tracking-wider py-2">Curriculum vitae</a>
-                <a href="#design4green" class="nav-link uppercase text-sm font-medium tracking-wider py-2">Design4green</a>
+                <a href="#design4green"
+                    class="nav-link uppercase text-sm font-medium tracking-wider py-2">Design4green</a>
             </div>
         </div>
     </header>
@@ -189,26 +194,31 @@ document.addEventListener("DOMContentLoaded", () => {
                 <!-- Left Column - Text Content -->
                 <div class="md:w-1/2 mb-12 md:mb-0 md:pr-8">
                     <h1 class="hero-title text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-                        Salut, Je suis <span class="text-[#E67E50]">DAYAWA Germain Mike</span> <br>Cyber security expert & Designer
+                        Salut, Je suis <span class="text-[#E67E50]">DAYAWA Germain Mike</span> <br>Cyber security expert
+                        & Designer
                     </h1>
                     <p class="competences">
-                    <span class="category">Réseaux & Systèmes :</span>
-                    VLANs, routage inter-VLAN, DNS, DHCP, NAT, ACLs, analyse de trafic, scripts Bash, supervision Linux.<br>
+                        <span class="category">Réseaux & Systèmes :</span>
+                        VLANs, routage inter-VLAN, DNS, DHCP, NAT, ACLs, analyse de trafic, scripts Bash, supervision
+                        Linux.<br>
 
-                    <span class="category">Développement :</span>
-                    Java (Swing, sérialisation, JUnit), Android Studio, Python, MATLAB, scripts d’automatisation, Git & GitHub.<br>
+                        <span class="category">Développement :</span>
+                        Java (Swing, sérialisation, JUnit), Android Studio, Python, MATLAB, scripts d’automatisation,
+                        Git & GitHub.<br>
 
-                    <span class="category">Sécurité & Cryptographie :</span>
-                    RSA, ElGamal, LFSR, chiffrement symétrique/asymétrique, protocoles d’authentification, sécurité des réseaux.<br>
+                        <span class="category">Sécurité & Cryptographie :</span>
+                        RSA, ElGamal, LFSR, chiffrement symétrique/asymétrique, protocoles d’authentification, sécurité
+                        des réseaux.<br>
 
-                    <span class="category">Outils & Logiciels :</span>
-                    Cisco Packet Tracer, Wireshark, NetBeans, Visual Studio Code, Linux (Debian/Ubuntu), Windows Server.<br>
+                        <span class="category">Outils & Logiciels :</span>
+                        Cisco Packet Tracer, Wireshark, NetBeans, Visual Studio Code, Linux (Debian/Ubuntu), Windows
+                        Server.<br>
 
-                    <span class="category">Soft Skills :</span>
-                    Autonomie, rigueur, travail en équipe, communication, créativité, adaptabilité internationale.
+                        <span class="category">Soft Skills :</span>
+                        Autonomie, rigueur, travail en équipe, communication, créativité, adaptabilité internationale.
                     </p>
 
-                    
+
                     <div class="flex space-x-6 mb-8">
                         <a href="#" class="social-icon text-xl text-gray-700 hover:text-[#E67E50]">
                             <i class="fab fa-instagram"></i>
@@ -224,22 +234,21 @@ document.addEventListener("DOMContentLoaded", () => {
                         </a>
                     </div>
 
-                    <a href="#explorer">    
-                    <button class="bg-[#E67E50] hover:bg-[#d46b3d] text-white px-6 py-3 rounded-full font-medium 
+                    <a href="#explorer">
+                        <button class="bg-[#E67E50] hover:bg-[#d46b3d] text-white px-6 py-3 rounded-full font-medium 
                     transition-all transform hover:-translate-y-1 shadow-md">
-                        Mes travaux
-                    </button>
+                            Mes travaux
+                        </button>
                     </a>
                 </div>
-                
+
                 <!-- Right Column - Image -->
                 <div class="md:w-1/2 flex justify-center">
                     <div class="relative w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96">
                         <div class="absolute inset-0 bg-[#E67E50] bg-opacity-20 rounded-full transform rotate-6"></div>
                         <div class="absolute inset-0 bg-[#E67E50] bg-opacity-10 rounded-full transform -rotate-6"></div>
-                        <img src="img3.jpg" 
-                             alt="Profile Image" 
-                             class="profile-img relative w-full h-full object-cover rounded-full border-4 border-white shadow-xl">
+                        <img src="img3.jpg" alt="Profile Image"
+                            class="profile-img relative w-full h-full object-cover rounded-full border-4 border-white shadow-xl">
                     </div>
                 </div>
             </div>
@@ -252,83 +261,93 @@ document.addEventListener("DOMContentLoaded", () => {
             <div class="text-center mb-16">
                 <h2 class="hero-title text-3xl md:text-4xl font-bold mb-4">Explorer</h2>
                 <p class="text-gray-600 max-w-2xl mx-auto">
-                   Réflexions sur la sécurité, l’innovation et le monde numérique.
-                    Découvrez mes dernières analyses et projets ci-dessous. 
+                    Réflexions sur la sécurité, l’innovation et le monde numérique.
+                    Découvrez mes dernières analyses et projets ci-dessous.
                 </p>
             </div>
-            
+
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Stage -->
                 <article class="blog-card bg-[#F5F1E8] rounded-lg overflow-hidden shadow-md">
-                    <div id = "stage" class="h-48 overflow-hidden">
-                        <img src="https://www.helios-apotheke-hannover.de/wp-content/uploads/sites/238/Bild-9.jpg" 
-                             alt="Blog Post Image" 
-                             class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                    <div id="stage" class="h-48 overflow-hidden">
+                        <img src="https://www.helios-apotheke-hannover.de/wp-content/uploads/sites/238/Bild-9.jpg"
+                            alt="Blog Post Image"
+                            class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
                     </div>
-            <div class="p-6">
+                    <div class="p-6">
                         <div class="flex items-center text-sm text-gray-500 mb-2">
                             <span>1er juillet-26 aout 2025</span>
                             <span class="mx-2">•</span>
                             <span>Hannovre, allemagne</span>
                         </div>
                         <h3 class="text-xl font-bold mb-3">Stage en informatique — Hélios Apotheke</h3>
-                <p class="text-gray-600 mb-4">
-                             Lors de mon stage à la pharmacie HELIOS APOTHEKE, j’ai participé à la modernisation de la gestion interne à travers la mise en place d’outils numériques.
-                            J’ai notamment conçu une application connectée au mélanomètre pour recommander automatiquement la crème solaire adaptée aux clients, 
+                        <p class="text-gray-600 mb-4">
+                            Lors de mon stage à la pharmacie HELIOS APOTHEKE, j’ai participé à la modernisation de la
+                            gestion interne à travers la mise en place d’outils numériques.
+                            J’ai notamment conçu une application connectée au mélanomètre pour recommander
+                            automatiquement la crème solaire adaptée aux clients,
                             et développé un système d’alerte pour les mails afin d’améliorer la communication interne.
 
-                        <span id="moreText" class="hidden transition-opacity duration-500 opacity-0 ">
-                        J’ai également pris part à la gestion des stocks, en classant les médicaments selon leur date de péremption 
-                        et en assurant le suivi des factures payées et impayées.
+                            <span id="moreText" class="hidden transition-opacity duration-500 opacity-0 ">
+                                J’ai également pris part à la gestion des stocks, en classant les médicaments selon leur
+                                date de péremption
+                                et en assurant le suivi des factures payées et impayées.
 
-                        Cette expérience, à la fois humaine et technique, m’a permis d’améliorer mes compétences en digitalisation, organisation et communication, 
-                        tout en découvrant la culture professionnelle allemande.
-                        </span>
+                                Cette expérience, à la fois humaine et technique, m’a permis d’améliorer mes compétences
+                                en digitalisation, organisation et communication,
+                                tout en découvrant la culture professionnelle allemande.
+                            </span>
 
-                        <a id="readMoreBtn"  class="text-[#E67E50] font-medium inline-flex items-center cursor-pointer mt-2">
-                        Lire la suite
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                            </svg>
-                        </a>
-                </p>
-            </div>
+                            <a id="readMoreBtn"
+                                class="text-[#E67E50] font-medium inline-flex items-center cursor-pointer mt-2">
+                                Lire la suite
+                                <svg xmlns="http://www.w3.org/2000/svg"
+                                    class="h-4 w-4 ml-1 transition-transform duration-300" fill="none"
+                                    viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M9 5l7 7-7 7" />
+                                </svg>
+                            </a>
+                        </p>
+                    </div>
                 </article>
-                
+
                 <!-- Benevolat -->
                 <article class="blog-card bg-[#F5F1E8] rounded-lg overflow-hidden shadow-md">
                     <div id="benevolat" class="h-48 overflow-hidden">
-                        <img src="BVOLAT.jpg" 
-                             alt="Blog Post Image" 
-                             class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                        <img src="BVOLAT.jpg" alt="Blog Post Image"
+                            class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
                     </div>
                     <div class="p-6">
                         <div class="flex items-center text-sm text-gray-500 mb-2">
                             <span>Octobre 2024- mai 2025</span>
-                            <span class="mx-2">• COP 1 •  </span>
+                            <span class="mx-2">• COP 1 • </span>
                             <span>Angers, France</span>
                         </div>
                         <h3 class="text-xl font-bold mb-3">Bénévolat à COP1 Angers</h3>
                         <p class="text-gray-600 mb-4">
                             En tant que bénévole au sein de Cop 1 – Solidarités Étudiantes Angers
-                            depuis octobre 2024, j’ai participé à la gestion du stock et à la distribution 
-                            alimentaire destinés aux étudiants en situation de précarité. Mon rôle consistait à préparer, organiser et distribuer les denrées, tout en contribuant à 
+                            depuis octobre 2024, j’ai participé à la gestion du stock et à la distribution
+                            alimentaire destinés aux étudiants en situation de précarité. Mon rôle consistait à
+                            préparer, organiser et distribuer les denrées, tout en contribuant à
                             la logistique et au bon déroulement des opérations solidaires.
                         </p>
                         <a href="#" class="text-[#E67E50] font-medium inline-flex items-center">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M9 5l7 7-7 7" />
                             </svg>
                         </a>
                     </div>
                 </article>
-                
+
                 <!-- CV -->
                 <article class="blog-card bg-[#F5F1E8] rounded-lg overflow-hidden shadow-md">
                     <div id="cv" class="h-48 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
-                             alt="Blog Post Image" 
-                             class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                        <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+                            alt="Blog Post Image"
+                            class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
                     </div>
                     <div class="p-6">
                         <div class="flex items-center text-sm text-gray-500 mb-2">
@@ -338,23 +357,26 @@ document.addEventListener("DOMContentLoaded", () => {
                         </div>
                         <h3 class="text-xl font-bold mb-3">Curriculum vitae de DAYAWA Germain Mike</h3>
                         <p class="text-gray-600 mb-4">
-                            À travers ce portfolio, je souhaite partager mon parcours, mes projets et les compétences que j’ai développées au fil de 
+                            À travers ce portfolio, je souhaite partager mon parcours, mes projets et les compétences
+                            que j’ai développées au fil de
                             mes expériences et de ma formation.
                         </p>
-                            
-                        <a href="CV DAYAWA Germain Mike version finale.pdf" 
-                        class="inline-flex items-center bg-[#E67E50] text-white font-medium px-4 py-2 rounded hover:bg-[#d76b3e] transition-colors">
-                           Télécharger mon CV
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                        <a href="CV DAYAWA Germain Mike version finale.pdf"
+                            class="inline-flex items-center bg-[#E67E50] text-white font-medium px-4 py-2 rounded hover:bg-[#d76b3e] transition-colors">
+                            Télécharger mon CV
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M4 4v16h16V4H4zm8 4v8m-4-4h8" />
                             </svg>
                         </a>
                     </div>
                 </article>
             </div>
-            
+
             <div class="text-center mt-12">
-                <a href="#" class="inline-block border border-[#E67E50] text-[#E67E50] hover:bg-[#E67E50] hover:text-white px-6 py-3 rounded-full font-medium transition-all">
+                <a href="#"
+                    class="inline-block border border-[#E67E50] text-[#E67E50] hover:bg-[#E67E50] hover:text-white px-6 py-3 rounded-full font-medium transition-all">
                     Mes compétences
                 </a>
             </div>
@@ -366,31 +388,35 @@ document.addEventListener("DOMContentLoaded", () => {
         <div class="container mx-auto">
             <div class="flex flex-col md:flex-row items-center">
                 <div class="md:w-1/2 mb-8 md:mb-0 md:pr-8">
-                    <img src="img1.jpg" 
-                         alt="Podcast Cover" 
-                         class="w-full rounded-lg shadow-xl">
+                    <img src="img1.jpg" alt="Podcast Cover" class="w-full rounded-lg shadow-xl">
                 </div>
                 <div class="md:w-1/2">
                     <h2 class="hero-title text-3xl md:text-4xl font-bold mb-6">Design4green</h2>
                     <p class="text-lg text-gray-600 mb-6">
-                        Dans le cadre du challenge Design4Green 2025, j’ai conçu une application Flask éco-conçue capable de générer des résumés automatiques de textes tout en minimisant la consommation d’énergie, de mémoire et de temps d’exécution.
-                        Le projet utilise le modèle EleutherAI/pythia-70m-deduped optimisé (INT8) et mesure en temps réel les métriques de performance et d’impact environnemental via CodeCarbon.
-                        Un rapport PDF dynamique est généré pour visualiser l’efficacité énergétique et la sobriété numérique du système.
+                        Dans le cadre du challenge Design4Green 2025, j’ai conçu une application Flask éco-conçue
+                        capable de générer des résumés automatiques de textes tout en minimisant la consommation
+                        d’énergie, de mémoire et de temps d’exécution.
+                        Le projet utilise le modèle EleutherAI/pythia-70m-deduped optimisé (INT8) et mesure en temps
+                        réel les métriques de performance et d’impact environnemental via CodeCarbon.
+                        Un rapport PDF dynamique est généré pour visualiser l’efficacité énergétique et la sobriété
+                        numérique du système.
                     </p>
                     <div class="mb-8">
                         <h3 class="text-xl font-bold mb-4">Latest Episode</h3>
                         <div class="bg-white p-6 rounded-lg shadow-md">
                             <img src="D4G.png" class="w-full h-48 object-cover mb-4 rounded"
-                            alt="Design4green Podcast Episode">
+                                alt="Design4green Podcast Episode">
                             <h4 class="font-bold mb-2">Application Web Designforgreen</h4>
                             <p class="text-gray-600 text-sm mb-4">04 novembre - 06 novembre 2025</p>
                         </div>
                     </div>
                     <div class="flex space-x-4">
-                        <a href="#" class="bg-black text-white px-4 py-2 rounded-full text-sm font-medium inline-flex items-center">
+                        <a href="#"
+                            class="bg-black text-white px-4 py-2 rounded-full text-sm font-medium inline-flex items-center">
                             <i class="fab fa-spotify mr-2"></i> Spotify
                         </a>
-                        <a href="#" class="bg-[#FF5E5B] text-white px-4 py-2 rounded-full text-sm font-medium inline-flex items-center">
+                        <a href="#"
+                            class="bg-[#FF5E5B] text-white px-4 py-2 rounded-full text-sm font-medium inline-flex items-center">
                             <i class="fab fa-apple mr-2"></i> Apple Podcasts
                         </a>
                     </div>
@@ -406,16 +432,16 @@ document.addEventListener("DOMContentLoaded", () => {
             <p class="text-gray-600 mb-8 max-w-2xl mx-auto">
                 Abonnez-vous à ma page pour des informations mensuelles, des conseils créatifs et du contenu exclusif
             </p>
-            
+
             <form class="flex flex-col sm:flex-row gap-4 max-w-lg mx-auto">
-                <input type="email" placeholder="Ton adresse e-mail" 
-                       class="flex-grow px-4 py-3 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#E67E50] focus:border-transparent">
-                <button type="submit" 
-                        class="bg-[#E67E50] hover:bg-[#d46b3d] text-white px-6 py-3 rounded-full font-medium transition-all">
+                <input type="email" placeholder="Ton adresse e-mail"
+                    class="flex-grow px-4 py-3 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#E67E50] focus:border-transparent">
+                <button type="submit"
+                    class="bg-[#E67E50] hover:bg-[#d46b3d] text-white px-6 py-3 rounded-full font-medium transition-all">
                     Souscrition
                 </button>
             </form>
-            
+
             <p class="text-xs text-gray-500 mt-4">
                 Nous respectons votre vie privée. Vous pouvez vous désabonner à tout moment.
             </p>
@@ -427,23 +453,27 @@ document.addEventListener("DOMContentLoaded", () => {
         <div class="container mx-auto">
             <div class="flex flex-col md:flex-row justify-between">
                 <div class="mb-8 md:mb-0">
-                    <a href="#" class="text-2xl font-bold text-[#E67E50] mb-4 inline-block">Portefolio DAYAWA Germain Mike</a>
+                    <a href="#" class="text-2xl font-bold text-[#E67E50] mb-4 inline-block">Portefolio DAYAWA Germain
+                        Mike</a>
                     <p class="text-gray-400 max-w-xs">
-                       Un espace de partage d'exploration, de design thinking et de partage de connaissances
+                        Un espace de partage d'exploration, de design thinking et de partage de connaissances
                         autour de la cybersécurité et de l'innovation numérique.
                 </div>
-                
+
                 <div class="grid grid-cols-2 md:grid-cols-3 gap-8">
                     <div>
                         <h3 class="text-lg font-bold mb-4">exploration</h3>
                         <ul class="space-y-2">
-                            <li><a href="#competences" class="text-gray-400 hover:text-white transition">Compétences</a></li>
+                            <li><a href="#competences" class="text-gray-400 hover:text-white transition">Compétences</a>
+                            </li>
                             <li><a href="#stage" class="text-gray-400 hover:text-white transition">Stages</a></li>
-                            <li><a href="#benevolat" class="text-gray-400 hover:text-white transition">Bénévolat</a></li>
-                            <li><a href="#design4green" class="text-gray-400 hover:text-white transition">Design4green</a></li>
+                            <li><a href="#benevolat" class="text-gray-400 hover:text-white transition">Bénévolat</a>
+                            </li>
+                            <li><a href="#design4green"
+                                    class="text-gray-400 hover:text-white transition">Design4green</a></li>
                         </ul>
                     </div>
-                    
+
                     <div>
                         <h3 class="text-lg font-bold mb-4">Connect</h3>
                         <ul class="space-y-2">
@@ -453,7 +483,7 @@ document.addEventListener("DOMContentLoaded", () => {
                             <li><a href="#" class="text-gray-400 hover:text-white transition">Dribbble</a></li>
                         </ul>
                     </div>
-                    
+
                     <div>
                         <h3 class="text-lg font-bold mb-4">Legal</h3>
                         <ul class="space-y-2">
@@ -464,7 +494,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     </div>
                 </div>
             </div>
-            
+
             <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
                 <p class="text-gray-500 text-sm mb-4 md:mb-0">
                     © 2025 CreativeMind. All rights reserved.
@@ -492,12 +522,12 @@ document.addEventListener("DOMContentLoaded", () => {
         const menuToggle = document.getElementById('menu-toggle');
         const mobileMenu = document.getElementById('mobile-menu');
         const hamburger = document.querySelector('.hamburger');
-        
+
         menuToggle.addEventListener('click', () => {
             mobileMenu.classList.toggle('hidden');
             hamburger.classList.toggle('active');
         });
-        
+
         // Close mobile menu when clicking on a link
         const navLinks = document.querySelectorAll('#mobile-menu a');
         navLinks.forEach(link => {
@@ -506,22 +536,22 @@ document.addEventListener("DOMContentLoaded", () => {
                 hamburger.classList.remove('active');
             });
         });
-        
+
         // Active nav link indicator
         const currentPage = window.location.pathname.split('/').pop() || 'index.html';
         const navLinksAll = document.querySelectorAll('.nav-link');
-        
+
         navLinksAll.forEach(link => {
             const linkHref = link.getAttribute('href').split('/').pop();
-            
+
             if (currentPage === linkHref) {
                 link.classList.add('active');
             } else {
                 link.classList.remove('active');
             }
         });
-        
+
     </script>
 </body>
 
-</html>                        
+</html>
