@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LEP S8 - DAYAWA Germain Mike</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Playfair+Display:wght@400;600;700&display=swap');
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #F5F1E8;
+            background-image: radial-gradient(rgba(230, 126, 80, 0.08) 1px, transparent 1px);
+            background-size: 24px 24px;
+            color: #2C2C2C;
+        }
+        .hero-title { font-family: 'Playfair Display', serif; }
+        ::-webkit-scrollbar { width: 10px; }
+        ::-webkit-scrollbar-track { background: #F5F1E8; }
+        ::-webkit-scrollbar-thumb { background: #E67E50; border-radius: 5px; }
+        ::-webkit-scrollbar-thumb:hover { background: #d46b3d; }
+        .print-only { display: none; }
+        @media print {
+            .no-print { display: none !important; }
+            .print-only { display: block; }
+            body { background: white; background-image: none; }
+        }
+    </style>
+</head>
+<body class="min-h-screen">
+
+    <!-- Navigation Bar -->
+    <header class="fixed w-full bg-white/70 backdrop-blur-md shadow-sm z-50 no-print">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-xl font-bold text-[#E67E50]">
+                <i class="fas fa-arrow-left mr-2"></i> Retour au Portfolio
+            </a>
+            <a href="index.html" class="hidden md:inline-block border border-[#E67E50] text-[#E67E50] hover:bg-[#E67E50] hover:text-white px-4 py-2 rounded-full text-sm font-medium transition-all">
+                Portfolio Principal
+            </a>
+        </div>
+    </header>
+
+    <!-- Cover Section -->
+    <section class="pt-32 pb-16 px-4">
+        <div class="container mx-auto max-w-4xl text-center" data-aos="fade-up">
+            <div class="flex justify-center items-center gap-8 mb-8">
+                <img src="lep_img_p1_1.png" alt="Logo ESAIP" class="h-20 object-contain">
+                <img src="lep_img_p1_2.png" alt="Logo COP1" class="h-16 object-contain">
+            </div>
+            <h1 class="hero-title text-4xl md:text-5xl font-bold mb-4">
+                Livret d'Engagement Personnel
+            </h1>
+            <p class="text-lg text-[#E67E50] font-semibold mb-2">« Donner à manger, c'est semer l'humanité »</p>
+            <div class="mt-6 text-gray-600 space-y-1">
+                <p class="font-semibold text-lg">Filière ING4 — S8</p>
+                <p>ESAIP – École d'ingénieurs, Angers</p>
+                <p>Année universitaire : <strong>2025-2026</strong></p>
+                <p class="mt-4 text-xl font-bold text-[#2C2C2C]">Fait par : Germain Mike DAYAWA</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sommaire -->
+    <section class="py-8 px-4">
+        <div class="container mx-auto max-w-4xl" data-aos="fade-up">
+            <div class="bg-white p-8 rounded-xl shadow-lg border-l-4 border-[#E67E50]">
+                <h2 class="hero-title text-2xl font-bold mb-6 text-[#E67E50]">Sommaire</h2>
+                <ol class="space-y-3 text-gray-700">
+                    <li class="flex items-center gap-3"><span class="bg-[#E67E50] text-white rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold">I</span> Contexte et continuité de la mission</li>
+                    <li class="flex items-center gap-3"><span class="bg-[#E67E50] text-white rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold">II</span> Missions et responsabilités élargies</li>
+                    <li class="flex items-center gap-3"><span class="bg-[#E67E50] text-white rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold">III</span> Objectifs visés et résultats atteints</li>
+                    <li class="flex items-center gap-3"><span class="bg-[#E67E50] text-white rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold">IV</span> Compétences développées et consolidées</li>
+                    <li class="flex items-center gap-3"><span class="bg-[#E67E50] text-white rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold">V</span> Bilan réflexif et perspectives</li>
+                    <li class="flex items-center gap-3"><span class="bg-[#E67E50] text-white rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold">VI</span> Pièce justificative</li>
+                </ol>
+            </div>
+        </div>
+    </section>
+
+    <!-- I. Contexte -->
+    <section class="py-8 px-4">
+        <div class="container mx-auto max-w-4xl" data-aos="fade-up">
+            <div class="bg-white p-8 rounded-xl shadow-lg">
+                <h2 class="hero-title text-2xl font-bold mb-6 text-[#E67E50]">I. Contexte et continuité de la mission</h2>
+                <p class="text-gray-700 leading-relaxed mb-4">
+                    Ce livret s'inscrit dans la continuité directe de mon engagement initié en octobre 2024 au sein de l'association
+                    <strong>Cop 1 – Solidarités Étudiantes Angers</strong>. Après une première année riche en apprentissages (ING3/S7),
+                    j'ai naturellement poursuivi mon implication bénévole durant mon année ING4/S8 (2025-2026), animé par la conviction que
+                    la solidarité est un engagement qui se construit dans la durée.
+                </p>
+                <p class="text-gray-700 leading-relaxed mb-4">
+                    La précarité étudiante n'ayant malheureusement pas diminué, les besoins restent immenses. Mon expérience acquise
+                    l'année précédente m'a permis d'aborder cette seconde phase avec davantage d'assurance et de prendre des responsabilités
+                    accrues au sein de l'équipe.
+                </p>
+                <div class="bg-[#F5F1E8] p-4 rounded-lg mt-6">
+                    <p class="text-sm text-gray-600"><i class="fas fa-calendar-alt text-[#E67E50] mr-2"></i><strong>Période :</strong> Septembre 2025 – Mai 2026</p>
+                    <p class="text-sm text-gray-600 mt-1"><i class="fas fa-map-marker-alt text-[#E67E50] mr-2"></i><strong>Lieu :</strong> Angers, France – Cop 1 Solidarités Étudiantes</p>
+                    <p class="text-sm text-gray-600 mt-1"><i class="fas fa-clock text-[#E67E50] mr-2"></i><strong>Volume horaire cumulé :</strong> ~70 heures (35h en ING3 + 35h en ING4)</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- II. Missions -->
+    <section class="py-8 px-4">
+        <div class="container mx-auto max-w-4xl" data-aos="fade-up">
+            <div class="bg-white p-8 rounded-xl shadow-lg">
+                <h2 class="hero-title text-2xl font-bold mb-6 text-[#E67E50]">II. Missions et responsabilités élargies</h2>
+                <p class="text-gray-700 leading-relaxed mb-6">
+                    Fort de mon expérience de l'année précédente, mes responsabilités au sein de Cop 1 ont évolué. En plus des missions
+                    habituelles de gestion de stock et de distribution alimentaire, j'ai pu prendre un rôle plus actif dans :
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                    <div class="bg-[#F5F1E8] p-6 rounded-lg">
+                        <h3 class="font-bold text-[#E67E50] mb-3"><i class="fas fa-boxes-stacked mr-2"></i>Pôle Stock</h3>
+                        <ul class="text-gray-700 text-sm space-y-2">
+                            <li>• Supervision du rangement des denrées collectées</li>
+                            <li>• Vérification des dates de péremption et tri qualitatif</li>
+                            <li>• Coordination du chargement de la fourgonnette</li>
+                            <li>• Anticipation des besoins selon les inscriptions</li>
+                        </ul>
+                    </div>
+                    <div class="bg-[#F5F1E8] p-6 rounded-lg">
+                        <h3 class="font-bold text-[#E67E50] mb-3"><i class="fas fa-hand-holding-heart mr-2"></i>Pôle Distribution</h3>
+                        <ul class="text-gray-700 text-sm space-y-2">
+                            <li>• Accueil et orientation des bénéficiaires</li>
+                            <li>• Distribution de produits alimentaires et d'hygiène</li>
+                            <li>• Accompagnement des nouveaux bénévoles</li>
+                            <li>• Gestion des flux et régulation de l'affluence</li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- Photos -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="rounded-lg overflow-hidden shadow-md">
+                        <img src="lep_img_p4_1.png" alt="Distribution alimentaire" class="w-full h-56 object-cover">
+                        <p class="text-xs text-gray-500 text-center py-2 bg-gray-50">Distribution alimentaire – Préparation des denrées</p>
+                    </div>
+                    <div class="rounded-lg overflow-hidden shadow-md">
+                        <img src="lep_img_p4_2.png" alt="Séance de distribution" class="w-full h-56 object-cover">
+                        <p class="text-xs text-gray-500 text-center py-2 bg-gray-50">Vue d'ensemble d'une séance de distribution</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- III. Objectifs -->
+    <section class="py-8 px-4">
+        <div class="container mx-auto max-w-4xl" data-aos="fade-up">
+            <div class="bg-white p-8 rounded-xl shadow-lg">
+                <h2 class="hero-title text-2xl font-bold mb-6 text-[#E67E50]">III. Objectifs visés et résultats atteints</h2>
+                <div class="overflow-x-auto">
+                    <table class="w-full border-collapse border border-gray-200 text-sm">
+                        <thead>
+                            <tr class="bg-[#2C2C2C] text-white">
+                                <th class="p-4 border border-gray-300 text-left">Objectif</th>
+                                <th class="p-4 border border-gray-300 text-left">Indicateur</th>
+                                <th class="p-4 border border-gray-300 text-center">Statut</th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-gray-700">
+                            <tr class="hover:bg-gray-50">
+                                <td class="p-4 border border-gray-200">Participer à 10+ séances de distribution</td>
+                                <td class="p-4 border border-gray-200">12 séances entre sept. 2025 et mai 2026</td>
+                                <td class="p-4 border border-gray-200 text-center"><i class="fas fa-check-circle text-green-500 text-lg"></i></td>
+                            </tr>
+                            <tr class="hover:bg-gray-50">
+                                <td class="p-4 border border-gray-200">Cumuler 35h de bénévolat supplémentaires</td>
+                                <td class="p-4 border border-gray-200">~35h réalisées sur la période ING4</td>
+                                <td class="p-4 border border-gray-200 text-center"><i class="fas fa-check-circle text-green-500 text-lg"></i></td>
+                            </tr>
+                            <tr class="hover:bg-gray-50">
+                                <td class="p-4 border border-gray-200">Accompagner les nouveaux bénévoles</td>
+                                <td class="p-4 border border-gray-200">Tutorat de 5 nouveaux arrivants</td>
+                                <td class="p-4 border border-gray-200 text-center"><i class="fas fa-check-circle text-green-500 text-lg"></i></td>
+                            </tr>
+                            <tr class="hover:bg-gray-50">
+                                <td class="p-4 border border-gray-200">Maintenir un taux de rupture de stock &lt; 5%</td>
+                                <td class="p-4 border border-gray-200">Gestion anticipée des réserves</td>
+                                <td class="p-4 border border-gray-200 text-center"><i class="fas fa-check-circle text-green-500 text-lg"></i></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- IV. Compétences -->
+    <section class="py-8 px-4">
+        <div class="container mx-auto max-w-4xl" data-aos="fade-up">
+            <div class="bg-white p-8 rounded-xl shadow-lg">
+                <h2 class="hero-title text-2xl font-bold mb-6 text-[#E67E50]">IV. Compétences développées et consolidées</h2>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                    <div class="border-l-4 border-[#E67E50] pl-4">
+                        <h3 class="font-bold text-gray-800 mb-2">Leadership de proximité</h3>
+                        <p class="text-gray-600 text-sm">Encadrement et motivation des nouveaux bénévoles, transmission des bonnes pratiques et supervision bienveillante des opérations.</p>
+                    </div>
+                    <div class="border-l-4 border-[#E67E50] pl-4">
+                        <h3 class="font-bold text-gray-800 mb-2">Organisation & Logistique</h3>
+                        <p class="text-gray-600 text-sm">Planification des tâches, hiérarchisation des urgences, optimisation du circuit logistique et gestion des flux de bénéficiaires.</p>
+                    </div>
+                    <div class="border-l-4 border-[#E67E50] pl-4">
+                        <h3 class="font-bold text-gray-800 mb-2">Communication & Écoute</h3>
+                        <p class="text-gray-600 text-sm">Capacité à instaurer un climat de confiance, recueillir les besoins implicites et reformuler clairement auprès des étudiants.</p>
+                    </div>
+                    <div class="border-l-4 border-[#E67E50] pl-4">
+                        <h3 class="font-bold text-gray-800 mb-2">Résilience & Adaptabilité</h3>
+                        <p class="text-gray-600 text-sm">Aptitude à rester efficace malgré la pression, gérer les imprévus (ruptures de stock, affluence soudaine) sans perturber la distribution.</p>
+                    </div>
+                </div>
+
+                <!-- Photo -->
+                <div class="rounded-lg overflow-hidden shadow-md max-w-sm mx-auto">
+                    <img src="lep_img_p7_1.png" alt="Bénévoles en action" class="w-full object-cover">
+                    <p class="text-xs text-gray-500 text-center py-2 bg-gray-50">Au stand d'hygiène – Distribution de produits essentiels</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- V. Bilan -->
+    <section class="py-8 px-4">
+        <div class="container mx-auto max-w-4xl" data-aos="fade-up">
+            <div class="bg-white p-8 rounded-xl shadow-lg">
+                <h2 class="hero-title text-2xl font-bold mb-6 text-[#E67E50]">V. Bilan réflexif et perspectives</h2>
+                <p class="text-gray-700 leading-relaxed mb-4">
+                    Cette deuxième année d'engagement au sein de Cop 1 a profondément transformé ma vision de la solidarité.
+                    Si la première année m'avait permis de découvrir le fonctionnement associatif et d'acquérir des compétences
+                    fondamentales, cette seconde phase m'a offert l'opportunité de les approfondir et de les transmettre.
+                </p>
+                <p class="text-gray-700 leading-relaxed mb-4">
+                    J'ai pu constater l'évolution de ma posture : d'un bénévole exécutant, je suis devenu un référent capable d'accompagner
+                    les nouveaux arrivants, d'anticiper les difficultés logistiques et de contribuer activement à la cohésion d'équipe. Cette
+                    progression illustre parfaitement le lien entre engagement personnel et développement professionnel.
+                </p>
+                <p class="text-gray-700 leading-relaxed mb-4">
+                    En tant que futur ingénieur en cybersécurité, les soft skills développés au sein de Cop 1 — le leadership,
+                    la communication, la gestion de crise et l'empathie — sont des atouts essentiels que je pourrai mobiliser
+                    dans mon parcours professionnel, notamment dans la gestion d'équipes techniques et la conduite de projets complexes.
+                </p>
+                <div class="bg-[#F5F1E8] p-6 rounded-lg mt-6 border-l-4 border-[#E67E50]">
+                    <p class="text-gray-700 italic leading-relaxed">
+                        « Cop1, c'est plus qu'un engagement. C'est un lien fraternel, un foyer de chaleur humaine où chacun,
+                        quelle que soit sa situation, a sa place. C'est cette vision, à la fois humble et puissante, qui continuera
+                        de guider mes pas. »
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- VI. Pièce justificative -->
+    <section class="py-8 pb-16 px-4">
+        <div class="container mx-auto max-w-4xl" data-aos="fade-up">
+            <div class="bg-white p-8 rounded-xl shadow-lg">
+                <h2 class="hero-title text-2xl font-bold mb-6 text-[#E67E50]">VI. Pièce justificative – Attestation de bénévolat</h2>
+                <div class="rounded-lg overflow-hidden shadow-md max-w-lg mx-auto border border-gray-200">
+                    <img src="lep_img_p8_1.png" alt="Attestation de bénévolat COP1" class="w-full object-contain">
+                </div>
+                <div class="text-center mt-6">
+                    <a href="AB mike.pdf" target="_blank"
+                        class="inline-flex items-center bg-[#E67E50] text-white font-medium px-6 py-3 rounded-full hover:bg-[#d46b3d] transition-all transform hover:-translate-y-1 shadow-md">
+                        <i class="fas fa-file-pdf mr-2"></i> Télécharger l'attestation complète
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-[#2C2C2C] text-white py-8 px-4 no-print">
+        <div class="container mx-auto text-center">
+            <p class="text-gray-400 text-sm">© 2026 DAYAWA Germain Mike – LEP S8 – ESAIP Angers</p>
+            <a href="index.html" class="text-[#E67E50] hover:underline text-sm mt-2 inline-block">Retour au Portfolio</a>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 800, once: true, offset: 100 });
+    </script>
+</body>
+</html>
