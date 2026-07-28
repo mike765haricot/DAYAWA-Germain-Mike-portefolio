@@ -42,6 +42,15 @@
             font-family: 'Playfair Display', serif;
         }
 
+        /* --- LE LOGO TYPOGRAPHIQUE --- */
+        .nav-logo {
+            text-decoration: none;
+            display: flex;
+            align-items: baseline;
+            gap: 8px;
+        }
+
+        /* --- LES LIENS DE NAVIGATION --- */
         .nav-link {
             position: relative;
         }
@@ -51,7 +60,7 @@
             position: absolute;
             width: 0;
             height: 2px;
-            bottom: -4px;
+            bottom: -6px;
             left: 0;
             background-color: #E67E50;
             transition: width 0.3s ease;
@@ -110,7 +119,6 @@
         .competences {
             font-size: 1rem;
             color: #4B5563;
-            /* gris doux */
             line-height: 1.8;
             margin-top: 1.5rem;
             background: #fff;
@@ -125,6 +133,51 @@
             font-weight: 600;
             color: #E67E50;
             margin-top: 0.5rem;
+        }
+
+        /* --- STYLES CARNET DE COMPETENCES --- */
+        .notebook-wrapper {
+            background-color: #FAFAFA; /* Papier très clair */
+            border-radius: 4px 16px 16px 4px;
+            box-shadow: 
+                20px 20px 40px rgba(0,0,0,0.08),
+                -5px 0 15px rgba(0,0,0,0.03);
+            border-left: 28px solid #333333; /* La reliure foncée */
+            position: relative;
+            /* Lignes horizontales subtiles type cahier */
+            background-image: linear-gradient(transparent 95%, #f0f0f0 95%);
+            background-size: 100% 2.5rem;
+        }
+
+        /* Simulation des trous de classeur sur la reliure */
+        .notebook-wrapper::before {
+            content: '';
+            position: absolute;
+            top: 2rem; 
+            bottom: 2rem; 
+            left: -18px; /* Positionné sur la reliure */
+            width: 8px;
+            background-image: 
+                radial-gradient(circle, #F5F1E8 4px, transparent 5px),
+                radial-gradient(circle, #F5F1E8 4px, transparent 5px),
+                radial-gradient(circle, #F5F1E8 4px, transparent 5px),
+                radial-gradient(circle, #F5F1E8 4px, transparent 5px);
+            background-position: 
+                0 0, 
+                0 25%, 
+                0 75%, 
+                0 100%;
+            background-repeat: no-repeat;
+            background-size: 8px 8px;
+        }
+
+        .notebook-inner-card {
+            background: white;
+            border: 1px solid #f0f0f0;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+            position: relative;
+            z-index: 10;
         }
     </style>
 </head>
@@ -160,10 +213,8 @@
                 }, 500);
             }
         });
-
     });
 </script>
-
 
 <body class="min-h-screen">
     <!-- Header/Navigation -->
@@ -178,11 +229,10 @@
 
             <!-- Desktop Navigation -->
             <nav class="hidden md:flex space-x-6 lg:space-x-10 items-center">
-                <a href="#competences"
-                    class="nav-link active uppercase text-[0.80rem] font-semibold tracking-widest text-gray-500 hover:text-gray-900 transition-colors">Compétences</a>
-                <a href="#stage" class="nav-link uppercase text-[0.80rem] font-semibold tracking-widest text-gray-500 hover:text-gray-900 transition-colors">Stages</a>
+                <a href="#competences" class="nav-link active uppercase text-[0.80rem] font-semibold tracking-widest text-gray-500 hover:text-gray-900 transition-colors">Compétences</a>
+                <a href="#explorer" class="nav-link uppercase text-[0.80rem] font-semibold tracking-widest text-gray-500 hover:text-gray-900 transition-colors">Stages</a>
                 <a href="#benevolat" class="nav-link uppercase text-[0.80rem] font-semibold tracking-widest text-gray-500 hover:text-gray-900 transition-colors">Bénévolat</a>
-                <a href="#cv" class="nav-link uppercase text-[0.80rem] font-semibold tracking-widest text-gray-500 hover:text-gray-900 transition-colors">Curriculum vitae</a>
+                <a href="#cv" class="nav-link uppercase text-[0.80rem] font-semibold tracking-widest text-gray-500 hover:text-gray-900 transition-colors">CV</a>
                 <a href="#design4green" class="nav-link uppercase text-[0.80rem] font-semibold tracking-widest text-gray-500 hover:text-gray-900 transition-colors">Design4green</a>
                 <a href="#carnet" class="nav-link uppercase text-[0.80rem] font-semibold tracking-widest text-gray-500 hover:text-gray-900 transition-colors">Carnet</a>
             </nav>
@@ -200,67 +250,55 @@
         <!-- Mobile Menu -->
         <div id="mobile-menu" class="hidden md:hidden bg-white py-4 px-4 shadow-lg border-t border-gray-100">
             <div class="flex flex-col space-y-4">
-                <a href="#competences"
-                    class="nav-link active uppercase text-[0.85rem] font-semibold tracking-widest text-gray-600 py-2">Compétences</a>
-                <a href="#stage" class="nav-link uppercase text-[0.85rem] font-semibold tracking-widest text-gray-600 py-2">Stages</a>
+                <a href="#competences" class="nav-link active uppercase text-[0.85rem] font-semibold tracking-widest text-gray-600 py-2">Compétences</a>
+                <a href="#explorer" class="nav-link uppercase text-[0.85rem] font-semibold tracking-widest text-gray-600 py-2">Stages</a>
                 <a href="#benevolat" class="nav-link uppercase text-[0.85rem] font-semibold tracking-widest text-gray-600 py-2">Bénévolat</a>
-                <a href="#cv" class="nav-link uppercase text-[0.85rem] font-semibold tracking-widest text-gray-600 py-2">Curriculum vitae</a>
-                <a href="#design4green"
-                    class="nav-link uppercase text-[0.85rem] font-semibold tracking-widest text-gray-600 py-2">Design4green</a>
-                <a href="#carnet"
-                    class="nav-link uppercase text-[0.85rem] font-semibold tracking-widest text-gray-600 py-2">Carnet</a>
+                <a href="#cv" class="nav-link uppercase text-[0.85rem] font-semibold tracking-widest text-gray-600 py-2">CV</a>
+                <a href="#design4green" class="nav-link uppercase text-[0.85rem] font-semibold tracking-widest text-gray-600 py-2">Design4green</a>
+                <a href="#carnet" class="nav-link uppercase text-[0.85rem] font-semibold tracking-widest text-gray-600 py-2">Carnet</a>
             </div>
         </div>
     </header>
 
-    <!--  section competences -->
+    <!-- section competences -->
     <section id="competences" class="pt-32 pb-20 px-4">
         <div class="container mx-auto">
             <div class="flex flex-col md:flex-row items-center">
-                <!-- Left Column - Text Content -->
                 <div class="md:w-1/2 mb-12 md:mb-0 md:pr-8" data-aos="fade-right">
                     <h1 class="hero-title text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
                         Salut, Je suis <span class="bg-clip-text text-transparent bg-gradient-to-r from-[#E67E50] to-[#f09a73]">DAYAWA Germain Mike</span> <br>Élève Ingénieur en Cybersécurité
                     </h1>
                     <p class="competences">
                         <span class="category">Réseaux & Systèmes :</span>
-                        VLANs, routage inter-VLAN, DNS, DHCP, NAT, ACLs, analyse de trafic, scripts Bash, supervision
-                        Linux.<br>
+                        VLANs, routage inter-VLAN, DNS, DHCP, NAT, ACLs, analyse de trafic, scripts Bash, supervision Linux.<br>
 
                         <span class="category">Développement :</span>
-                        Java (Swing, sérialisation, JUnit), Android Studio, Python, MATLAB, scripts d’automatisation,
-                        Git & GitHub.<br>
+                        Java (Swing, sérialisation, JUnit), Android Studio, Python, MATLAB, scripts d’automatisation, Git & GitHub.<br>
 
                         <span class="category">Sécurité & Cryptographie :</span>
-                        RSA, ElGamal, LFSR, chiffrement symétrique/asymétrique, protocoles d’authentification, sécurité
-                        des réseaux.<br>
+                        RSA, ElGamal, LFSR, chiffrement symétrique/asymétrique, protocoles d’authentification, sécurité des réseaux.<br>
 
                         <span class="category">Outils & Logiciels :</span>
-                        Cisco Packet Tracer, Wireshark, NetBeans, Visual Studio Code, Linux (Debian/Ubuntu), Windows
-                        Server.<br>
+                        Cisco Packet Tracer, Wireshark, NetBeans, Visual Studio Code, Linux (Debian/Ubuntu), Windows Server.<br>
 
                         <span class="category">Soft Skills :</span>
                         Autonomie, rigueur, travail en équipe, communication, créativité, adaptabilité internationale.
                     </p>
 
-
                     <div class="mb-8"></div>
 
                     <a href="#explorer">
-                        <button class="bg-[#E67E50] hover:bg-[#d46b3d] text-white px-6 py-3 rounded-full font-medium 
-                    transition-all transform hover:-translate-y-1 shadow-md">
+                        <button class="bg-[#E67E50] hover:bg-[#d46b3d] text-white px-6 py-3 rounded-full font-medium transition-all transform hover:-translate-y-1 shadow-md">
                             Mes travaux
                         </button>
                     </a>
                 </div>
 
-                <!-- Right Column - Image -->
                 <div class="md:w-1/2 flex justify-center" data-aos="fade-left" data-aos-delay="200">
                     <div class="relative w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 hover:scale-105 transition-transform duration-500">
                         <div class="absolute inset-0 bg-[#E67E50] bg-opacity-20 rounded-full transform rotate-6"></div>
                         <div class="absolute inset-0 bg-[#E67E50] bg-opacity-10 rounded-full transform -rotate-6"></div>
-                        <img src="image originale.jpg" alt="Profile Image"
-                            class="profile-img relative w-full h-full object-cover rounded-full border-4 border-white shadow-xl hover:shadow-2xl transition-shadow duration-300">
+                        <img src="image originale.jpg" alt="Profile Image" class="profile-img relative w-full h-full object-cover rounded-full border-4 border-white shadow-xl hover:shadow-2xl transition-shadow duration-300">
                     </div>
                 </div>
             </div>
@@ -273,51 +311,70 @@
             <div class="text-center mb-16" data-aos="fade-up">
                 <h2 class="hero-title text-3xl md:text-4xl font-bold mb-4">Explorer</h2>
                 <p class="text-gray-600 max-w-2xl mx-auto">
-                    Réflexions sur la sécurité, l’innovation et le monde numérique.
-                    Découvrez mes dernières analyses et projets ci-dessous.
+                    Réflexions sur la sécurité, l’innovation et le monde numérique. Découvrez mes dernières expériences et projets ci-dessous.
                 </p>
             </div>
 
+            <!-- CARTE EN VEDETTE : STAGE EDF -->
+            <article class="w-full mb-12 relative bg-[#F5F1E8] rounded-xl overflow-hidden shadow-lg border border-gray-100 flex flex-col md:flex-row transform hover:-translate-y-1 transition-all duration-300" data-aos="fade-up">
+                <!-- Liseré bleu EDF décoratif -->
+                <div class="absolute top-0 left-0 w-full md:w-2 h-2 md:h-full bg-blue-600 z-10"></div>
+                
+                <div class="md:w-2/5 h-64 md:h-auto relative overflow-hidden">
+                    <!-- Image d'illustration industrielle/centrale -->
+                    <img src="https://images.unsplash.com/photo-1533658514936-f08d4b8e622b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80" alt="Innovation EDF" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                    <!-- Badge En cours -->
+                    <div class="absolute top-4 left-4 md:left-8 bg-white/90 backdrop-blur px-3 py-1.5 rounded-full flex items-center shadow-md">
+                        <span class="relative flex h-3 w-3 mr-2">
+                          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                          <span class="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
+                        </span>
+                        <span class="text-xs font-bold text-gray-800 uppercase tracking-wide">En cours</span>
+                    </div>
+                </div>
+                
+                <div class="p-8 md:w-3/5 flex flex-col justify-center">
+                    <div class="flex flex-wrap items-center text-sm text-blue-600 font-semibold mb-3 gap-y-2">
+                        <span><i class="far fa-calendar-alt mr-2"></i> 8 juin – 4 septembre 2026</span>
+                        <span class="mx-3 text-gray-400 hidden sm:inline">|</span>
+                        <span><i class="fas fa-map-marker-alt mr-2"></i> CNPE Saint-Alban Saint-Maurice</span>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 text-gray-900">Ingénieur Stagiaire — EDF (Service SIR)</h3>
+                    <p class="text-gray-700 mb-6 leading-relaxed">
+                        Au sein du <strong>Service Inspection Reconnu (SIR)</strong>, je participe activement à la digitalisation et à la fiabilisation des processus industriels. Mon rôle consiste notamment à développer et optimiser des outils Low-Code pour le suivi opérationnel, l'automatisation des alertes et la gestion intelligente des bases de données.
+                    </p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-white border border-blue-200 text-blue-700 rounded text-xs font-bold shadow-sm">Power Apps</span>
+                        <span class="px-3 py-1 bg-white border border-blue-200 text-blue-700 rounded text-xs font-bold shadow-sm">Power Automate</span>
+                        <span class="px-3 py-1 bg-white border border-blue-200 text-blue-700 rounded text-xs font-bold shadow-sm">VBA & SQLite</span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- LA GRILLE CLASSIQUE -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Stage -->
-                <article class="blog-card bg-[#F5F1E8] rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2" data-aos="fade-up" data-aos-delay="100">
-                    <div id="stage" class="h-48 overflow-hidden">
-                        <img src="https://www.helios-apotheke-hannover.de/wp-content/uploads/sites/238/Bild-9.jpg"
-                            alt="Blog Post Image"
-                            class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                
+                <!-- Ancien Stage Hélios -->
+                <article class="blog-card bg-[#F5F1E8] rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2" data-aos="fade-up" data-aos-delay="100">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://www.helios-apotheke-hannover.de/wp-content/uploads/sites/238/Bild-9.jpg" alt="Blog Post Image" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
                     </div>
                     <div class="p-6">
                         <div class="flex items-center text-sm text-gray-500 mb-2">
-                            <span>1er juillet-26 aout 2025</span>
+                            <span>1er juil. - 26 août 2025</span>
                             <span class="mx-2">•</span>
-                            <span>Hannovre, Allemagne</span>
+                            <span>Hanovre, Allemagne</span>
                         </div>
                         <h3 class="text-xl font-bold mb-3">Stage en informatique — Hélios Apotheke</h3>
-                        <p class="text-gray-600 mb-4">
-                            Lors de mon stage à la pharmacie HELIOS APOTHEKE, j’ai participé à la modernisation de la
-                            gestion interne à travers la mise en place d’outils numériques.
-                            J’ai notamment conçu une application connectée au mélanomètre pour recommander
-                            automatiquement la crème solaire adaptée aux clients,
-                            et développé un système d’alerte pour les mails afin d’améliorer la communication interne.
-
-                            <span id="moreText" class="hidden transition-opacity duration-500 opacity-0 ">
-                                J’ai également pris part à la gestion des stocks, en classant les médicaments selon leur
-                                date de péremption
-                                et en assurant le suivi des factures payées et impayées.
-
-                                Cette expérience, à la fois humaine et technique, m’m a permis d’améliorer mes compétences
-                                en digitalisation, organisation et communication,
-                                tout en découvrant la culture professionnelle allemande.
+                        <p class="text-gray-600 mb-4 text-sm">
+                            Lors de mon stage, j’ai participé à la modernisation de la gestion interne à travers la mise en place d’outils numériques. J’ai notamment conçu une application connectée au mélanomètre pour recommander automatiquement la crème solaire.
+                            <span id="moreText" class="hidden transition-opacity duration-500 opacity-0 block mt-2">
+                                J’ai également pris part à la gestion des stocks et au suivi des factures. Cette expérience m’a permis d’améliorer mes compétences en digitalisation et communication, tout en découvrant la culture professionnelle allemande.
                             </span>
-
-                            <a id="readMoreBtn"
-                                class="text-[#E67E50] font-medium inline-flex items-center cursor-pointer mt-2">
+                            <a id="readMoreBtn" class="text-[#E67E50] font-medium inline-flex items-center cursor-pointer mt-2">
                                 Lire la suite
-                                <svg xmlns="http://www.w3.org/2000/svg"
-                                    class="h-4 w-4 ml-1 transition-transform duration-300" fill="none"
-                                    viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M9 5l7 7-7 7" />
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
                                 </svg>
                             </a>
                         </p>
@@ -325,33 +382,26 @@
                 </article>
 
                 <!-- Benevolat -->
-                <article class="blog-card bg-[#F5F1E8] rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2" data-aos="fade-up" data-aos-delay="200">
+                <article class="blog-card bg-[#F5F1E8] rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2" data-aos="fade-up" data-aos-delay="200">
                     <div id="benevolat" class="h-48 overflow-hidden">
-                        <img src="BVOLAT.jpg" alt="Blog Post Image"
-                            class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                        <img src="BVOLAT.jpg" alt="Blog Post Image" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
                     </div>
                     <div class="p-6">
                         <div class="flex items-center text-sm text-gray-500 mb-2">
-                            <span>Octobre 2024- mai 2025</span>
+                            <span>Oct. 2024 - Mai 2025</span>
                             <span class="mx-2">• COP 1 • </span>
                             <span>Angers, France</span>
                         </div>
                         <h3 class="text-xl font-bold mb-3">Bénévolat à COP1 Angers</h3>
                         <p class="text-gray-600 mb-4 text-sm">
-                            <strong>Environnement et missions :</strong> En tant que bénévole au sein de Cop 1 – Solidarités Étudiantes Angers
-                            (durant mes années ING3 et ING4), j’ai participé à la gestion du stock et à la distribution
-                            alimentaire destinés aux étudiants en situation de précarité. Mon rôle consistait à
-                            préparer, organiser et distribuer les denrées, tout en contribuant à
-                            la logistique et au bon déroulement des opérations solidaires.<br><br>
-                            <strong>Analyse de l'expérience :</strong> Cette expérience m'a permis de me confronter à la réalité de la précarité étudiante, renforçant mon empathie et mon engagement citoyen. J'ai acquis des compétences en logistique et organisation. J'ai également appris sur moi-même ma capacité d'adaptation et mon sens de l'écoute.
+                            <strong>Missions :</strong> Participation à la gestion du stock et à la distribution alimentaire destinés aux étudiants en précarité. Préparation, organisation et logistique solidaire.<br><br>
+                            <strong>Analyse :</strong> Cette expérience m'a permis de me confronter à la réalité de la précarité étudiante, renforçant mon empathie, mon sens de l'écoute et mes compétences logistiques.
                         </p>
-                        <div class="flex flex-wrap gap-2 mt-2">
-                            <a href="AB mike.pdf" target="_blank"
-                                class="inline-flex items-center bg-[#E67E50] text-white font-medium px-4 py-2 rounded hover:bg-[#d76b3e] transition-colors text-sm">
+                        <div class="flex flex-wrap gap-2 mt-4">
+                            <a href="AB mike.pdf" target="_blank" class="inline-flex items-center bg-[#E67E50] text-white font-medium px-4 py-2 rounded hover:bg-[#d76b3e] transition-colors text-xs">
                                 <i class="fas fa-file-pdf mr-1"></i> Attestation
                             </a>
-                            <a href="lep-s8.html"
-                                class="inline-flex items-center border border-[#E67E50] text-[#E67E50] font-medium px-4 py-2 rounded hover:bg-[#E67E50] hover:text-white transition-colors text-sm">
+                            <a href="lep-s8.html" class="inline-flex items-center border border-[#E67E50] text-[#E67E50] font-medium px-4 py-2 rounded hover:bg-[#E67E50] hover:text-white transition-colors text-xs">
                                 <i class="fas fa-book-open mr-1"></i> Mon LEP S8
                             </a>
                         </div>
@@ -359,74 +409,56 @@
                 </article>
 
                 <!-- CV -->
-                <article class="blog-card bg-[#F5F1E8] rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2" data-aos="fade-up" data-aos-delay="300">
+                <article class="blog-card bg-[#F5F1E8] rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2" data-aos="fade-up" data-aos-delay="300">
                     <div id="cv" class="h-48 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
-                            alt="Blog Post Image"
-                            class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                        <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80" alt="Blog Post Image" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
                     </div>
                     <div class="p-6">
                         <div class="flex items-center text-sm text-gray-500 mb-2">
-                            <span>11 novembre, 2025</span>
+                            <span>Document officiel</span>
                         </div>
-                        <h3 class="text-xl font-bold mb-3">Curriculum vitae de DAYAWA Germain Mike</h3>
-                        <p class="text-gray-600 mb-4">
-                            À travers ce portfolio, je souhaite partager mon parcours, mes projets et les compétences
-                            que j’ai développées au fil de
-                            mes expériences et de ma formation.
+                        <h3 class="text-xl font-bold mb-3">Curriculum vitae</h3>
+                        <p class="text-gray-600 mb-6 text-sm">
+                            À travers ce portfolio, je souhaite partager mon parcours, mes projets et les compétences que j’ai développées au fil de mes expériences et de ma formation. Retrouvez le condensé sur mon CV.
                         </p>
-                        <a href="CV DAYAWA Germain Mike version finale.pdf"
-                            class="inline-flex items-center bg-[#E67E50] text-white font-medium px-4 py-2 rounded hover:bg-[#d76b3e] transition-colors">
+                        <a href="CV DAYAWA Germain Mike version finale.pdf" class="inline-flex items-center bg-[#E67E50] text-white font-medium px-4 py-2 rounded hover:bg-[#d76b3e] transition-colors text-sm">
                             Télécharger mon CV
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24"
-                                stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M4 4v16h16V4H4zm8 4v8m-4-4h8" />
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v16h16V4H4zm8 4v8m-4-4h8" />
                             </svg>
                         </a>
                     </div>
                 </article>
             </div>
-
-            <div class="text-center mt-12">
-                <a href="#competences"
-                    class="inline-block border border-[#E67E50] text-[#E67E50] hover:bg-[#E67E50] hover:text-white px-6 py-3 rounded-full font-medium transition-all">
-                    Mes compétences
-                </a>
-            </div>
         </div>
     </section>
 
-    <!--Section designforgreen -->
-    <section id="design4green" class="py-16 px-4 bg-[#F5F1E8]">
-        <div class="container mx-auto">
-            <div class="flex flex-col md:flex-row items-center">
+    <!-- Section Design4Green avec un fond écologique -->
+    <section id="design4green" class="py-20 px-4 relative overflow-hidden">
+        <!-- Arrière-plan écologique (dégradé vert + cercles flous organiques) -->
+        <div class="absolute inset-0 bg-gradient-to-br from-[#E8F5E9] via-[#F1F8F4] to-[#D4EDDA] z-0"></div>
+        <div class="absolute top-0 left-0 w-72 h-72 bg-green-300 opacity-20 rounded-full filter blur-3xl transform -translate-x-1/2 -translate-y-1/2 z-0"></div>
+        <div class="absolute bottom-0 right-0 w-96 h-96 bg-emerald-400 opacity-20 rounded-full filter blur-3xl transform translate-x-1/3 translate-y-1/3 z-0"></div>
+
+        <div class="container mx-auto relative z-10">
+            <div class="flex flex-col md:flex-row items-center bg-white/60 backdrop-blur-sm p-8 rounded-2xl shadow-xl border border-white/50">
                 <div class="md:w-1/2 mb-8 md:mb-0 md:pr-8" data-aos="fade-right">
-                    <img src="img1.jpg" alt="Podcast Cover" class="w-full rounded-lg shadow-xl hover:scale-105 transition-transform duration-500">
+                    <img src="img1.jpg" alt="Design4Green" class="w-full rounded-lg shadow-lg hover:scale-105 transition-transform duration-500">
                 </div>
                 <div class="md:w-1/2" data-aos="fade-left">
-                    <h2 class="hero-title text-3xl md:text-4xl font-bold mb-6">Design4green</h2>
-                    <p class="text-lg text-gray-600 mb-6">
-                        Dans le cadre du challenge Design4Green 2025, j’ai conçu une application Flask éco-conçue
-                        capable de générer des résumés automatiques de textes tout en minimisant la consommation
-                        d’énergie, de mémoire et de temps d’exécution.
-                        Le projet utilise le modèle EleutherAI/pythia-70m-deduped optimisé (INT8) et mesure en temps
-                        réel les métriques de performance et d’impact environnemental via CodeCarbon.
-                        Un rapport PDF dynamique est généré pour visualiser l’efficacité énergétique et la sobriété
-                        numérique du système.
+                    <h2 class="hero-title text-3xl md:text-4xl font-bold mb-6 text-green-900">Design4green</h2>
+                    <p class="text-lg text-gray-700 mb-6">
+                        Dans le cadre du challenge <strong>Design4Green 2025</strong>, j’ai conçu une application Flask éco-conçue capable de générer des résumés automatiques de textes tout en minimisant la consommation d’énergie, de mémoire et de temps d’exécution.
+                        Le projet utilise le modèle EleutherAI/pythia-70m-deduped optimisé (INT8) et mesure en temps réel les métriques de performance et d’impact environnemental via CodeCarbon.
                     </p>
                     <div class="mb-8">
-                        <h3 class="text-xl font-bold mb-4">Aperçu du projet</h3>
-                        <div class="bg-white p-6 rounded-lg shadow-md">
-                            <img src="D4G.png" class="w-full h-48 object-cover mb-4 rounded"
-                                alt="Aperçu de l'application Design4green">
-                            <h4 class="font-bold mb-2">Application Web Designforgreen</h4>
-                            <p class="text-gray-600 text-sm mb-4">04 novembre - 06 novembre 2025</p>
+                        <div class="bg-white/90 p-5 rounded-lg shadow-sm border border-green-100">
+                            <h4 class="font-bold mb-1 text-green-800"><i class="fas fa-leaf mr-2"></i>Sobriété numérique</h4>
+                            <p class="text-gray-600 text-sm">Un rapport PDF dynamique est généré pour visualiser l’efficacité énergétique du système.</p>
                         </div>
                     </div>
                     <div class="flex space-x-4">
-                        <a href="https://github.com/mike765haricot" target="_blank"
-                            class="bg-black hover:bg-gray-800 text-white px-6 py-2 rounded-full text-sm font-medium inline-flex items-center transition">
+                        <a href="https://github.com/mike765haricot" target="_blank" class="bg-green-800 hover:bg-green-900 text-white px-6 py-2 rounded-full text-sm font-medium inline-flex items-center transition shadow-md">
                             <i class="fab fa-github mr-2"></i> Voir sur GitHub
                         </a>
                     </div>
@@ -436,88 +468,95 @@
     </section>
 
     <!-- Carnet de Compétences Section -->
-    <section id="carnet" class="py-16 px-4 bg-white border-t border-gray-200">
+    <section id="carnet" class="py-20 px-4 bg-gray-50 border-t border-gray-200">
         <div class="container mx-auto max-w-5xl">
-            <h2 class="hero-title text-3xl md:text-4xl font-bold mb-10 text-center" data-aos="fade-up">Carnet de Compétences</h2>
+            <h2 class="hero-title text-3xl md:text-4xl font-bold mb-12 text-center" data-aos="fade-up">Carnet de Compétences</h2>
             
-            <!-- Orientation -->
-            <div class="mb-10 bg-[#F5F1E8] p-8 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300" data-aos="fade-up" data-aos-delay="100">
-                <h3 class="text-2xl font-bold mb-4 text-[#E67E50]">1. Pourquoi j'ai choisi cette orientation ?</h3>
-                <p class="text-gray-700 leading-relaxed">
-                    Passionné par l'innovation numérique et conscient des enjeux croissants liés à la protection des données, j'ai choisi de m'orienter vers la cybersécurité. Ce domaine me permet de conjuguer mon esprit analytique, mon attrait pour les défis techniques et mon désir de contribuer à un environnement numérique plus sûr. J'apprécie particulièrement la nécessité constante de me গঠন face aux nouvelles menaces, ce qui rend ce secteur stimulant et dynamique.
-                </p>
-            </div>
-
-            <!-- Formation vs Projet Pro -->
-            <div class="mb-10 bg-white p-8 rounded-lg shadow-lg border border-gray-100 hover:shadow-xl transition-shadow duration-300" data-aos="fade-up" data-aos-delay="200">
-                <h3 class="text-2xl font-bold mb-6 text-[#E67E50]">2. Ma formation par rapport à mon projet professionnel</h3>
-                <div class="overflow-x-auto">
-                    <table class="w-full text-left border-collapse border border-gray-200">
-                        <thead>
-                            <tr class="bg-[#2C2C2C] text-white">
-                                <th class="p-4 border border-gray-300">Ce que j'ai apprécié</th>
-                                <th class="p-4 border border-gray-300">Ce qui m'a manqué</th>
-                            </tr>
-                        </thead>
-                        <tbody class="text-gray-700">
-                            <tr class="hover:bg-gray-50">
-                                <td class="p-4 border border-gray-200"><i class="fas fa-check text-green-500 mr-2"></i>L'approche pratique des projets (laboratoires de sécurité, configuration réseau, cryptographie).</td>
-                                <td class="p-4 border border-gray-200"><i class="fas fa-minus text-red-400 mr-2"></i>Davantage d'interventions de professionnels du secteur pour partager leur expérience terrain.</td>
-                            </tr>
-                            <tr class="hover:bg-gray-50">
-                                <td class="p-4 border border-gray-200"><i class="fas fa-check text-green-500 mr-2"></i>Le travail en équipe sur des défis complexes et concrets (comme le challenge Design4Green).</td>
-                                <td class="p-4 border border-gray-200"><i class="fas fa-minus text-red-400 mr-2"></i>Une spécialisation plus poussée sur des outils spécifiques (ex: SIEM, pentest) plus tôt dans le cursus.</td>
-                            </tr>
-                            <tr class="hover:bg-gray-50">
-                                <td class="p-4 border border-gray-200"><i class="fas fa-check text-green-500 mr-2"></i>La diversité des compétences acquises (réseaux, systèmes Linux, développement, gestion de projet).</td>
-                                <td class="p-4 border border-gray-200"><i class="fas fa-minus text-red-400 mr-2"></i>L'intégration de préparations aux certifications professionnelles directement dans le parcours.</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-
-            <!-- Projet Professionnel -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
-                <div class="bg-[#F5F1E8] p-8 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300" data-aos="fade-right" data-aos-delay="100">
-                    <h3 class="text-2xl font-bold mb-4 text-[#E67E50]">3. Mes valeurs & anti-valeurs</h3>
-                    <div class="mb-4">
-                        <h4 class="font-bold text-gray-800 mb-2 border-b-2 border-[#E67E50] inline-block pb-1">Mes valeurs</h4>
-                        <ul class="list-disc list-inside text-gray-700 space-y-1 mt-2">
-                            <li>L'intégrité (honnêteté et éthique)</li>
-                            <li>L'adaptabilité (évoluer avec les technologies)</li>
-                            <li>L'esprit de collaboration (partage)</li>
-                            <li>L'excellence technique</li>
-                        </ul>
+            <!-- Le design du "vrai carnet" -->
+            <div class="notebook-wrapper p-8 md:p-12" data-aos="zoom-in" data-aos-duration="1000">
+                
+                <div class="grid grid-cols-1 gap-10">
+                    <!-- Orientation -->
+                    <div class="notebook-inner-card p-6 md:p-8 border-l-4 border-[#E67E50]">
+                        <h3 class="text-2xl font-bold mb-4 text-[#E67E50] border-b border-gray-100 pb-2">1. Pourquoi cette orientation ?</h3>
+                        <p class="text-gray-700 leading-relaxed font-medium">
+                            Passionné par l'innovation numérique et conscient des enjeux liés à la protection des données, j'ai choisi de m'orienter vers la cybersécurité. Ce domaine conjugue mon esprit analytique, mon attrait pour les défis techniques et mon désir de contribuer à un environnement plus sûr. J'apprécie la nécessité de me former en continu face aux menaces, ce qui rend ce secteur stimulant.
+                        </p>
                     </div>
-                    <div>
-                        <h4 class="font-bold text-gray-800 mb-2 border-b-2 border-gray-400 inline-block pb-1">Mes anti-valeurs</h4>
-                        <ul class="list-disc list-inside text-gray-700 space-y-1 mt-2">
-                            <li>L'arrogance</li>
-                            <li>Le dogmatisme</li>
-                            <li>La superficialité</li>
-                            <li>Le pessimisme</li>
-                        </ul>
-                    </div>
-                </div>
 
-                <div class="bg-[#F5F1E8] p-8 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 flex flex-col justify-between" data-aos="fade-left" data-aos-delay="200">
-                    <div>
-                        <h3 class="text-2xl font-bold mb-4 text-[#E67E50]">4. Projet en lien avec mes compétences</h3>
-                        <p class="text-gray-700 mb-4">
-                            Mon objectif est de devenir ingénieur en cybersécurité. Mes compétences en administration de réseaux et systèmes (Linux, VLANs, ACLs) me permettent de concevoir des architectures sécurisées. Ma maîtrise de la cryptographie et de l'analyse de trafic constitue une base solide pour l'audit et l'identification des vulnérabilités au sein d'une organisation.
+                    <!-- Formation vs Projet Pro -->
+                    <div class="notebook-inner-card p-6 md:p-8">
+                        <h3 class="text-2xl font-bold mb-6 text-[#E67E50] border-b border-gray-100 pb-2">2. Formation & Projet professionnel</h3>
+                        <div class="overflow-x-auto">
+                            <table class="w-full text-left border-collapse">
+                                <thead>
+                                    <tr class="bg-gray-100 text-gray-800">
+                                        <th class="p-4 rounded-tl-lg font-bold">Ce que j'ai apprécié</th>
+                                        <th class="p-4 rounded-tr-lg font-bold">Ce qui m'a manqué</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="text-gray-700 text-sm">
+                                    <tr class="border-b border-gray-100">
+                                        <td class="p-4"><i class="fas fa-check text-green-500 mr-2"></i>L'approche pratique (labs, réseau, cryptographie).</td>
+                                        <td class="p-4"><i class="fas fa-minus text-red-400 mr-2"></i>Plus d'interventions de professionnels du terrain.</td>
+                                    </tr>
+                                    <tr class="border-b border-gray-100">
+                                        <td class="p-4"><i class="fas fa-check text-green-500 mr-2"></i>Le travail en équipe sur des défis complexes (Design4Green).</td>
+                                        <td class="p-4"><i class="fas fa-minus text-red-400 mr-2"></i>Une spécialisation poussée (SIEM, pentest) plus tôt.</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="p-4"><i class="fas fa-check text-green-500 mr-2"></i>La diversité des compétences (réseaux, Linux, dév).</td>
+                                        <td class="p-4"><i class="fas fa-minus text-red-400 mr-2"></i>La préparation aux certifications dans le cursus.</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- Valeurs et Projet -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <div class="notebook-inner-card p-6 border-t-4 border-gray-800">
+                            <h3 class="text-xl font-bold mb-4 text-[#E67E50]">3. Valeurs & Anti-valeurs</h3>
+                            <div class="flex justify-between gap-4">
+                                <div class="w-1/2">
+                                    <h4 class="font-bold text-gray-800 text-sm mb-2 uppercase tracking-wide">Valeurs</h4>
+                                    <ul class="list-none text-gray-700 space-y-2 text-sm">
+                                        <li><i class="fas fa-plus text-[#E67E50] text-xs mr-2"></i>Intégrité</li>
+                                        <li><i class="fas fa-plus text-[#E67E50] text-xs mr-2"></i>Adaptabilité</li>
+                                        <li><i class="fas fa-plus text-[#E67E50] text-xs mr-2"></i>Collaboration</li>
+                                        <li><i class="fas fa-plus text-[#E67E50] text-xs mr-2"></i>Excellence</li>
+                                    </ul>
+                                </div>
+                                <div class="w-1/2">
+                                    <h4 class="font-bold text-gray-800 text-sm mb-2 uppercase tracking-wide">Anti-valeurs</h4>
+                                    <ul class="list-none text-gray-700 space-y-2 text-sm">
+                                        <li><i class="fas fa-times text-gray-400 text-xs mr-2"></i>Arrogance</li>
+                                        <li><i class="fas fa-times text-gray-400 text-xs mr-2"></i>Dogmatisme</li>
+                                        <li><i class="fas fa-times text-gray-400 text-xs mr-2"></i>Superficialité</li>
+                                        <li><i class="fas fa-times text-gray-400 text-xs mr-2"></i>Pessimisme</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="notebook-inner-card p-6 border-t-4 border-gray-800">
+                            <h3 class="text-xl font-bold mb-4 text-[#E67E50]">4. Projet & Compétences</h3>
+                            <p class="text-gray-700 text-sm leading-relaxed">
+                                Mon objectif : <strong>Ingénieur en cybersécurité</strong>. Mes compétences en administration (Linux, VLANs, ACLs) me permettent de concevoir des architectures sécurisées. Ma maîtrise de la cryptographie et de l'analyse de trafic constitue une base solide pour l'audit et l'identification des vulnérabilités.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Dans 5 ans -->
+                    <div class="notebook-inner-card p-6 md:p-8 bg-[#2C2C2C] text-white">
+                        <h3 class="text-2xl font-bold mb-4 text-[#E67E50]">5. Projection à 5 ans</h3>
+                        <p class="text-gray-300 leading-relaxed">
+                            Dans 5 ans, je me vois évoluer en tant qu'expert ou architecte sécurité au sein d'une entreprise d'envergure. J'aspire à piloter des stratégies de défense face aux cybermenaces, diriger des audits complexes et encadrer une équipe technique. J'aurai également obtenu des certifications reconnues mondialement (CISSP, CISM) pour attester de mon niveau d'exigence.
                         </p>
                     </div>
                 </div>
-            </div>
 
-            <!-- Dans 5 ans -->
-            <div class="bg-white p-8 rounded-lg shadow-lg border-l-4 border-[#E67E50] hover:shadow-xl transition-shadow duration-300" data-aos="fade-up" data-aos-delay="300">
-                <h3 class="text-2xl font-bold mb-4 text-[#E67E50]">5. Comment je me vois dans 5 ans ?</h3>
-                <p class="text-gray-700">
-                    Dans 5 ans, je me vois évoluer en tant qu'expert en cybersécurité ou architecte sécurité au sein d'une entreprise d'envergure. J'aspire à piloter des stratégies de défense face aux cybermenaces, diriger des audits complexes et pourquoi pas encadrer une équipe technique. J'aurai également obtenu des certifications reconnues mondialement (CISSP, CISM) pour attester de mon expertise et maintenir un haut niveau d'exigence dans mon domaine.
-                </p>
-            </div>
+            </div> <!-- Fin du carnet -->
         </div>
     </section>
 
@@ -548,8 +587,7 @@
         <div class="container mx-auto">
             <div class="flex flex-col md:flex-row justify-between">
                 <div class="mb-8 md:mb-0">
-                    <a href="#" class="text-2xl font-bold text-[#E67E50] mb-4 inline-block">Portefolio DAYAWA Germain
-                        Mike</a>
+                    <a href="#" class="text-2xl font-bold text-[#E67E50] mb-4 inline-block">DAYAWA Germain Mike</a>
                     <p class="text-gray-400 max-w-xs">
                         Un espace d'exploration, de design thinking et de partage de connaissances
                         autour de la cybersécurité et de l'innovation numérique.
@@ -559,23 +597,18 @@
                     <div>
                         <h3 class="text-lg font-bold mb-4">Exploration</h3>
                         <ul class="space-y-2">
-                            <li><a href="#competences" class="text-gray-400 hover:text-white transition">Compétences</a>
-                            </li>
-                            <li><a href="#stage" class="text-gray-400 hover:text-white transition">Stages</a></li>
-                            <li><a href="#benevolat" class="text-gray-400 hover:text-white transition">Bénévolat</a>
-                            </li>
-                            <li><a href="#design4green"
-                                    class="text-gray-400 hover:text-white transition">Design4green</a></li>
-                            <li><a href="#carnet"
-                                    class="text-gray-400 hover:text-white transition">Carnet</a></li>
+                            <li><a href="#competences" class="text-gray-400 hover:text-white transition">Compétences</a></li>
+                            <li><a href="#explorer" class="text-gray-400 hover:text-white transition">Stages</a></li>
+                            <li><a href="#benevolat" class="text-gray-400 hover:text-white transition">Bénévolat</a></li>
+                            <li><a href="#design4green" class="text-gray-400 hover:text-white transition">Design4green</a></li>
+                            <li><a href="#carnet" class="text-gray-400 hover:text-white transition">Carnet</a></li>
                         </ul>
                     </div>
 
                     <div>
                         <h3 class="text-lg font-bold mb-4">Contact</h3>
                         <ul class="space-y-2">
-                            <li><a href="mailto:gmdayawa@gmail.com"
-                                    class="text-gray-400 hover:text-white transition">M'envoyer un email</a></li>
+                            <li><a href="mailto:gmdayawa@gmail.com" class="text-gray-400 hover:text-white transition">M'envoyer un email</a></li>
                         </ul>
                     </div>
                 </div>
@@ -583,7 +616,7 @@
 
             <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
                 <p class="text-gray-500 text-sm mb-4 md:mb-0">
-                    © 2025 DAYAWA Germain Mike. Tous droits réservés.
+                    © 2026 DAYAWA Germain Mike. Tous droits réservés.
                 </p>
                 <div class="flex space-x-6">
                     <a href="mailto:gmdayawa@gmail.com" class="text-gray-500 hover:text-white transition">
@@ -627,7 +660,6 @@
                 link.classList.remove('active');
             }
         });
-
     </script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
