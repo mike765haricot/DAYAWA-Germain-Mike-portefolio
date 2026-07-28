@@ -217,19 +217,22 @@
 </script>
 
 <body class="min-h-screen">
-    <!-- Header/Navigation -->
+    <!-- Header/Navigation Minimaliste -->
     <header class="fixed w-full bg-white/80 backdrop-blur-md shadow-sm z-50 transition-all duration-300">
         <div class="container mx-auto px-4 py-5 flex justify-between items-center">
             
-            <!-- Logo Typographique -->
-            <a href="#" class="flex items-baseline gap-2 group decoration-transparent">
-                <span class="hero-title text-2xl md:text-3xl font-bold text-[#E67E50] uppercase tracking-widest transition-colors group-hover:text-[#d46b3d]">DAYAWA</span>
-                <span class="text-sm md:text-base font-medium text-gray-600 tracking-wider hidden sm:block">Germain Mike</span>
+            <!-- Logo Typographique Façon "Minimaliste" -->
+            <a href="#" class="flex items-center group decoration-transparent">
+                <!-- Point orange minimaliste -->
+                <span class="h-3.5 w-3.5 rounded-full bg-[#E67E50] inline-block mr-3 transition-transform group-hover:scale-125"></span>
+                <span class="text-xl md:text-2xl font-bold text-[#2C2C2C] tracking-wide transition-colors group-hover:text-[#E67E50]" style="font-family: 'Montserrat', sans-serif;">
+                    DAYAWA <span class="font-medium text-gray-500 hidden sm:inline">Germain Mike</span>
+                </span>
             </a>
 
             <!-- Desktop Navigation -->
             <nav class="hidden md:flex space-x-6 lg:space-x-10 items-center">
-                <a href="#competences" class="nav-link active uppercase text-[0.80rem] font-semibold tracking-widest text-gray-500 hover:text-gray-900 transition-colors">Compétences</a>
+                <a href="#competences" class="nav-link uppercase text-[0.80rem] font-semibold tracking-widest text-gray-500 hover:text-gray-900 transition-colors">Compétences</a>
                 <a href="#explorer" class="nav-link uppercase text-[0.80rem] font-semibold tracking-widest text-gray-500 hover:text-gray-900 transition-colors">Stages</a>
                 <a href="#benevolat" class="nav-link uppercase text-[0.80rem] font-semibold tracking-widest text-gray-500 hover:text-gray-900 transition-colors">Bénévolat</a>
                 <a href="#cv" class="nav-link uppercase text-[0.80rem] font-semibold tracking-widest text-gray-500 hover:text-gray-900 transition-colors">CV</a>
@@ -250,7 +253,7 @@
         <!-- Mobile Menu -->
         <div id="mobile-menu" class="hidden md:hidden bg-white py-4 px-4 shadow-lg border-t border-gray-100">
             <div class="flex flex-col space-y-4">
-                <a href="#competences" class="nav-link active uppercase text-[0.85rem] font-semibold tracking-widest text-gray-600 py-2">Compétences</a>
+                <a href="#competences" class="nav-link uppercase text-[0.85rem] font-semibold tracking-widest text-gray-600 py-2">Compétences</a>
                 <a href="#explorer" class="nav-link uppercase text-[0.85rem] font-semibold tracking-widest text-gray-600 py-2">Stages</a>
                 <a href="#benevolat" class="nav-link uppercase text-[0.85rem] font-semibold tracking-widest text-gray-600 py-2">Bénévolat</a>
                 <a href="#cv" class="nav-link uppercase text-[0.85rem] font-semibold tracking-widest text-gray-600 py-2">CV</a>
@@ -260,47 +263,80 @@
         </div>
     </header>
 
-    <!-- section competences -->
-    <section id="competences" class="pt-32 pb-20 px-4">
-        <div class="container mx-auto">
-            <div class="flex flex-col md:flex-row items-center">
-                <div class="md:w-1/2 mb-12 md:mb-0 md:pr-8" data-aos="fade-right">
-                    <h1 class="hero-title text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-                        Salut, Je suis <span class="bg-clip-text text-transparent bg-gradient-to-r from-[#E67E50] to-[#f09a73]">DAYAWA Germain Mike</span> <br>Élève Ingénieur en Cybersécurité
+    <!-- Section ACCUEIL Minimaliste -->
+    <section id="accueil" class="pt-40 pb-12 px-4 min-h-[80vh] flex items-center">
+        <div class="container mx-auto max-w-6xl">
+            <div class="flex flex-col-reverse md:flex-row items-center justify-between gap-12 md:gap-8">
+                
+                <!-- Bloc de gauche : Formes Géométriques SVG -->
+                <div class="w-full md:w-1/2 flex justify-center md:justify-start" data-aos="fade-right" data-aos-duration="1000">
+                    <svg viewBox="0 0 350 300" class="w-full max-w-md hover:scale-105 transition-transform duration-700 ease-out" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Arrière-plan pour l'effet de profondeur -->
+                        <rect x="150" y="80" width="100" height="100" fill="#3B82F6"/> <!-- Carré Bleu centre -->
+                        <rect x="250" y="80" width="100" height="100" fill="#E67E50"/> <!-- Carré Orange droite -->
+                        
+                        <!-- Ligne du bas -->
+                        <rect x="50" y="180" width="100" height="100" fill="#84CC16"/> <!-- Carré Vert -->
+                        <rect x="150" y="180" width="100" height="100" fill="#E67E50"/> <!-- Carré Orange -->
+                        <rect x="250" y="180" width="100" height="100" fill="#3B82F6"/> <!-- Carré Bleu -->
+                        
+                        <!-- Formes de premier plan -->
+                        <circle cx="100" cy="130" r="40" fill="#E67E50"/> <!-- Cercle Orange -->
+                        <polygon points="200,20 130,180 270,180" fill="#84CC16"/> <!-- Grand Triangle Vert -->
+                    </svg>
+                </div>
+
+                <!-- Bloc de droite : Typographie Impactante -->
+                <div class="w-full md:w-1/2 md:pl-8" data-aos="fade-left" data-aos-duration="1000">
+                    <h1 class="text-7xl md:text-8xl font-bold mb-4 text-[#E67E50] tracking-tighter" style="font-family: 'Montserrat', sans-serif;">
+                        Salut !
                     </h1>
-                    <p class="competences">
-                        <span class="category">Réseaux & Systèmes :</span>
-                        VLANs, routage inter-VLAN, DNS, DHCP, NAT, ACLs, analyse de trafic, scripts Bash, supervision Linux.<br>
-
-                        <span class="category">Développement :</span>
-                        Java (Swing, sérialisation, JUnit), Android Studio, Python, MATLAB, scripts d’automatisation, Git & GitHub.<br>
-
-                        <span class="category">Sécurité & Cryptographie :</span>
-                        RSA, ElGamal, LFSR, chiffrement symétrique/asymétrique, protocoles d’authentification, sécurité des réseaux.<br>
-
-                        <span class="category">Outils & Logiciels :</span>
-                        Cisco Packet Tracer, Wireshark, NetBeans, Visual Studio Code, Linux (Debian/Ubuntu), Windows Server.<br>
-
-                        <span class="category">Soft Skills :</span>
-                        Autonomie, rigueur, travail en équipe, communication, créativité, adaptabilité internationale.
+                    <p class="text-3xl md:text-5xl font-bold text-[#2C2C2C] leading-tight mb-8" style="font-family: 'Montserrat', sans-serif;">
+                        Je suis Germain Mike, élève ingénieur en 4ème année à l'ESAIP Angers, spécialisé en cybersécurité.
                     </p>
-
-                    <div class="mb-8"></div>
-
-                    <a href="#explorer">
-                        <button class="bg-[#E67E50] hover:bg-[#d46b3d] text-white px-6 py-3 rounded-full font-medium transition-all transform hover:-translate-y-1 shadow-md">
-                            Mes travaux
-                        </button>
+                    <a href="#competences" class="inline-flex items-center text-[#E67E50] font-bold text-lg hover:text-[#d46b3d] transition-colors group">
+                        Découvrir mon profil 
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 ml-2 transform group-hover:translate-y-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+                        </svg>
                     </a>
                 </div>
 
-                <div class="md:w-1/2 flex justify-center" data-aos="fade-left" data-aos-delay="200">
-                    <div class="relative w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 hover:scale-105 transition-transform duration-500">
-                        <div class="absolute inset-0 bg-[#E67E50] bg-opacity-20 rounded-full transform rotate-6"></div>
-                        <div class="absolute inset-0 bg-[#E67E50] bg-opacity-10 rounded-full transform -rotate-6"></div>
-                        <img src="image originale.jpg" alt="Profile Image" class="profile-img relative w-full h-full object-cover rounded-full border-4 border-white shadow-xl hover:shadow-2xl transition-shadow duration-300">
-                    </div>
-                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION COMPÉTENCES -->
+    <section id="competences" class="py-16 px-4">
+        <div class="container mx-auto max-w-5xl" data-aos="fade-up">
+            <h2 class="hero-title text-3xl md:text-4xl font-bold mb-8 text-center text-[#2C2C2C]">Mes expertises</h2>
+            <div class="competences bg-white p-8 md:p-12 rounded-2xl shadow-lg border border-gray-100">
+                <p class="mb-6 text-gray-700">
+                    <span class="category text-lg block mb-1">Réseaux & Systèmes :</span>
+                    VLANs, routage inter-VLAN, DNS, DHCP, NAT, ACLs, analyse de trafic, scripts Bash, supervision Linux.
+                </p>
+                <p class="mb-6 text-gray-700">
+                    <span class="category text-lg block mb-1">Développement :</span>
+                    Java (Swing, sérialisation, JUnit), Android Studio, Python, MATLAB, scripts d’automatisation, Git & GitHub.
+                </p>
+                <p class="mb-6 text-gray-700">
+                    <span class="category text-lg block mb-1">Sécurité & Cryptographie :</span>
+                    RSA, ElGamal, LFSR, chiffrement symétrique/asymétrique, protocoles d’authentification, sécurité des réseaux.
+                </p>
+                <p class="mb-6 text-gray-700">
+                    <span class="category text-lg block mb-1">Outils & Logiciels :</span>
+                    Cisco Packet Tracer, Wireshark, NetBeans, Visual Studio Code, Linux (Debian/Ubuntu), Windows Server.
+                </p>
+                <p class="text-gray-700">
+                    <span class="category text-lg block mb-1">Soft Skills :</span>
+                    Autonomie, rigueur, travail en équipe, communication, créativité, adaptabilité internationale.
+                </p>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="#explorer" class="bg-[#2C2C2C] hover:bg-black text-white px-8 py-4 rounded-full font-bold transition-all transform hover:-translate-y-1 shadow-xl inline-block">
+                    Voir mes projets
+                </a>
             </div>
         </div>
     </section>
