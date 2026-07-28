@@ -137,25 +137,23 @@
 
         /* --- STYLES CARNET DE COMPETENCES --- */
         .notebook-wrapper {
-            background-color: #FAFAFA; /* Papier très clair */
+            background-color: #FAFAFA;
             border-radius: 4px 16px 16px 4px;
             box-shadow: 
                 20px 20px 40px rgba(0,0,0,0.08),
                 -5px 0 15px rgba(0,0,0,0.03);
-            border-left: 28px solid #333333; /* La reliure foncée */
+            border-left: 28px solid #333333;
             position: relative;
-            /* Lignes horizontales subtiles type cahier */
             background-image: linear-gradient(transparent 95%, #f0f0f0 95%);
             background-size: 100% 2.5rem;
         }
 
-        /* Simulation des trous de classeur sur la reliure */
         .notebook-wrapper::before {
             content: '';
             position: absolute;
             top: 2rem; 
             bottom: 2rem; 
-            left: -18px; /* Positionné sur la reliure */
+            left: -18px;
             width: 8px;
             background-image: 
                 radial-gradient(circle, #F5F1E8 4px, transparent 5px),
@@ -187,32 +185,30 @@
         const moreText = document.getElementById("moreText");
         const arrowIcon = readMoreBtn.querySelector("svg");
 
-        readMoreBtn.addEventListener("click", () => {
-            const isHidden = moreText.classList.contains("hidden");
+        if(readMoreBtn && moreText && arrowIcon) {
+            readMoreBtn.addEventListener("click", () => {
+                const isHidden = moreText.classList.contains("hidden");
 
-            if (isHidden) {
-                // Affiche avec effet fade + slide
-                moreText.classList.remove("hidden");
-                setTimeout(() => {
-                    moreText.classList.remove("opacity-0", "translate-y-2");
-                    moreText.classList.add("opacity-100", "translate-y-0");
-                }, 10);
+                if (isHidden) {
+                    moreText.classList.remove("hidden");
+                    setTimeout(() => {
+                        moreText.classList.remove("opacity-0", "translate-y-2");
+                        moreText.classList.add("opacity-100", "translate-y-0");
+                    }, 10);
+                    readMoreBtn.firstChild.textContent = "Lire moins ";
+                    arrowIcon.classList.add("rotate-180");
+                } else {
+                    moreText.classList.remove("opacity-100", "translate-y-0");
+                    moreText.classList.add("opacity-0", "translate-y-2");
+                    arrowIcon.classList.remove("rotate-180");
+                    readMoreBtn.firstChild.textContent = "Lire la suite ";
 
-                // Change le texte et tourne l’icône
-                readMoreBtn.firstChild.textContent = "Lire moins ";
-                arrowIcon.classList.add("rotate-180");
-            } else {
-                // Cache avec effet inverse
-                moreText.classList.remove("opacity-100", "translate-y-0");
-                moreText.classList.add("opacity-0", "translate-y-2");
-                arrowIcon.classList.remove("rotate-180");
-                readMoreBtn.firstChild.textContent = "Lire la suite ";
-
-                setTimeout(() => {
-                    moreText.classList.add("hidden");
-                }, 500);
-            }
-        });
+                    setTimeout(() => {
+                        moreText.classList.add("hidden");
+                    }, 500);
+                }
+            });
+        }
     });
 </script>
 
@@ -221,9 +217,8 @@
     <header class="fixed w-full bg-white/80 backdrop-blur-md shadow-sm z-50 transition-all duration-300">
         <div class="container mx-auto px-4 py-5 flex justify-between items-center">
             
-            <!-- Logo Typographique Façon "Minimaliste" -->
+            <!-- Logo Typographique -->
             <a href="#" class="flex items-center group decoration-transparent">
-                <!-- Point orange minimaliste -->
                 <span class="h-3.5 w-3.5 rounded-full bg-[#E67E50] inline-block mr-3 transition-transform group-hover:scale-125"></span>
                 <span class="text-xl md:text-2xl font-bold text-[#2C2C2C] tracking-wide transition-colors group-hover:text-[#E67E50]" style="font-family: 'Montserrat', sans-serif;">
                     DAYAWA <span class="font-medium text-gray-500 hidden sm:inline">Germain Mike</span>
@@ -263,31 +258,13 @@
         </div>
     </header>
 
-    <!-- Section ACCUEIL Minimaliste -->
+    <!-- Section ACCUEIL Minimaliste + Photo -->
     <section id="accueil" class="pt-40 pb-12 px-4 min-h-[80vh] flex items-center">
         <div class="container mx-auto max-w-6xl">
             <div class="flex flex-col-reverse md:flex-row items-center justify-between gap-12 md:gap-8">
                 
-                <!-- Bloc de gauche : Formes Géométriques SVG -->
-                <div class="w-full md:w-1/2 flex justify-center md:justify-start" data-aos="fade-right" data-aos-duration="1000">
-                    <svg viewBox="0 0 350 300" class="w-full max-w-md hover:scale-105 transition-transform duration-700 ease-out" xmlns="http://www.w3.org/2000/svg">
-                        <!-- Arrière-plan pour l'effet de profondeur -->
-                        <rect x="150" y="80" width="100" height="100" fill="#3B82F6"/> <!-- Carré Bleu centre -->
-                        <rect x="250" y="80" width="100" height="100" fill="#E67E50"/> <!-- Carré Orange droite -->
-                        
-                        <!-- Ligne du bas -->
-                        <rect x="50" y="180" width="100" height="100" fill="#84CC16"/> <!-- Carré Vert -->
-                        <rect x="150" y="180" width="100" height="100" fill="#E67E50"/> <!-- Carré Orange -->
-                        <rect x="250" y="180" width="100" height="100" fill="#3B82F6"/> <!-- Carré Bleu -->
-                        
-                        <!-- Formes de premier plan -->
-                        <circle cx="100" cy="130" r="40" fill="#E67E50"/> <!-- Cercle Orange -->
-                        <polygon points="200,20 130,180 270,180" fill="#84CC16"/> <!-- Grand Triangle Vert -->
-                    </svg>
-                </div>
-
-                <!-- Bloc de droite : Typographie Impactante -->
-                <div class="w-full md:w-1/2 md:pl-8" data-aos="fade-left" data-aos-duration="1000">
+                <!-- Bloc de gauche : Typographie Impactante -->
+                <div class="w-full md:w-1/2 md:pr-8" data-aos="fade-right" data-aos-duration="1000">
                     <h1 class="text-7xl md:text-8xl font-bold mb-4 text-[#E67E50] tracking-tighter" style="font-family: 'Montserrat', sans-serif;">
                         Salut !
                     </h1>
@@ -300,6 +277,15 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
                         </svg>
                     </a>
+                </div>
+
+                <!-- Bloc de droite : Photo originale -->
+                <div class="w-full md:w-1/2 flex justify-center" data-aos="fade-left" data-aos-duration="1000">
+                    <div class="relative w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-[#E67E50] bg-opacity-20 rounded-full transform rotate-6"></div>
+                        <div class="absolute inset-0 bg-[#E67E50] bg-opacity-10 rounded-full transform -rotate-6"></div>
+                        <img src="image originale.jpg" alt="Profile Image" class="profile-img relative w-full h-full object-cover rounded-full border-4 border-white shadow-xl hover:shadow-2xl transition-shadow duration-300">
+                    </div>
                 </div>
 
             </div>
@@ -357,9 +343,7 @@
                 <div class="absolute top-0 left-0 w-full md:w-2 h-2 md:h-full bg-blue-600 z-10"></div>
                 
                 <div class="md:w-2/5 h-64 md:h-auto relative overflow-hidden">
-                    <!-- Image d'illustration industrielle/centrale -->
                     <img src="https://images.unsplash.com/photo-1533658514936-f08d4b8e622b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80" alt="Innovation EDF" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
-                    <!-- Badge En cours -->
                     <div class="absolute top-4 left-4 md:left-8 bg-white/90 backdrop-blur px-3 py-1.5 rounded-full flex items-center shadow-md">
                         <span class="relative flex h-3 w-3 mr-2">
                           <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
@@ -471,7 +455,6 @@
 
     <!-- Section Design4Green avec un fond écologique -->
     <section id="design4green" class="py-20 px-4 relative overflow-hidden">
-        <!-- Arrière-plan écologique (dégradé vert + cercles flous organiques) -->
         <div class="absolute inset-0 bg-gradient-to-br from-[#E8F5E9] via-[#F1F8F4] to-[#D4EDDA] z-0"></div>
         <div class="absolute top-0 left-0 w-72 h-72 bg-green-300 opacity-20 rounded-full filter blur-3xl transform -translate-x-1/2 -translate-y-1/2 z-0"></div>
         <div class="absolute bottom-0 right-0 w-96 h-96 bg-emerald-400 opacity-20 rounded-full filter blur-3xl transform translate-x-1/3 translate-y-1/3 z-0"></div>
@@ -508,11 +491,9 @@
         <div class="container mx-auto max-w-5xl">
             <h2 class="hero-title text-3xl md:text-4xl font-bold mb-12 text-center" data-aos="fade-up">Carnet de Compétences</h2>
             
-            <!-- Le design du "vrai carnet" -->
             <div class="notebook-wrapper p-8 md:p-12" data-aos="zoom-in" data-aos-duration="1000">
                 
                 <div class="grid grid-cols-1 gap-10">
-                    <!-- Orientation -->
                     <div class="notebook-inner-card p-6 md:p-8 border-l-4 border-[#E67E50]">
                         <h3 class="text-2xl font-bold mb-4 text-[#E67E50] border-b border-gray-100 pb-2">1. Pourquoi cette orientation ?</h3>
                         <p class="text-gray-700 leading-relaxed font-medium">
@@ -520,7 +501,6 @@
                         </p>
                     </div>
 
-                    <!-- Formation vs Projet Pro -->
                     <div class="notebook-inner-card p-6 md:p-8">
                         <h3 class="text-2xl font-bold mb-6 text-[#E67E50] border-b border-gray-100 pb-2">2. Formation & Projet professionnel</h3>
                         <div class="overflow-x-auto">
@@ -549,7 +529,6 @@
                         </div>
                     </div>
 
-                    <!-- Valeurs et Projet -->
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                         <div class="notebook-inner-card p-6 border-t-4 border-gray-800">
                             <h3 class="text-xl font-bold mb-4 text-[#E67E50]">3. Valeurs & Anti-valeurs</h3>
@@ -583,7 +562,6 @@
                         </div>
                     </div>
 
-                    <!-- Dans 5 ans -->
                     <div class="notebook-inner-card p-6 md:p-8 bg-[#2C2C2C] text-white">
                         <h3 class="text-2xl font-bold mb-4 text-[#E67E50]">5. Projection à 5 ans</h3>
                         <p class="text-gray-300 leading-relaxed">
@@ -592,7 +570,7 @@
                     </div>
                 </div>
 
-            </div> <!-- Fin du carnet -->
+            </div>
         </div>
     </section>
 
